@@ -113,6 +113,7 @@
     <Compile Include="CD_detallepedido.vb" />
     <Compile Include="CD_detalleventas.vb" />
     <Compile Include="CD_dinero.vb" />
+    <Compile Include="CD_lectura.vb" />
     <Compile Include="CD_mesa.vb" />
     <Compile Include="CD_pedido.vb" />
     <Compile Include="CD_personas.vb" />

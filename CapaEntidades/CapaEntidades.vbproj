@@ -68,6 +68,7 @@
     <Compile Include="CE_categoria.vb" />
     <Compile Include="CE_detallepedido.vb" />
     <Compile Include="CE_detalleventas.vb" />
+    <Compile Include="CE_dgv.vb" />
     <Compile Include="CE_dinero.vb" />
     <Compile Include="CE_mesa.vb" />
     <Compile Include="CE_pedido.vb" />

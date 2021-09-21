@@ -128,6 +128,7 @@
     <Compile Include="Transaccion_detallepedido.vb" />
     <Compile Include="Transaccion_detalleventas.vb" />
     <Compile Include="Transaccion_dinero.vb" />
+    <Compile Include="Transaccion_lectura.vb" />
     <Compile Include="Transaccion_mesa.vb" />
     <Compile Include="Transaccion_pedido.vb" />
     <Compile Include="Transaccion_personas.vb" />

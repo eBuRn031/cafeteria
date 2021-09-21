@@ -117,11 +117,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="frmCategoria.Designer.vb">
+      <DependentUpon>frmCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmCategoriasVista.Designer.vb">
+      <DependentUpon>frmCategoriasVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCategoriasVista.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -141,8 +146,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="frmCategoria.resx">
+      <DependentUpon>frmCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategoriasVista.resx">
+      <DependentUpon>frmCategoriasVista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
