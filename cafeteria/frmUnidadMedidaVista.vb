@@ -1,18 +1,14 @@
-﻿Imports CapaDatos.ClaseCodeDOM
-Imports CapaEntidades.ClaseCodeDOM
+﻿Imports CapaEntidades.ClaseCodeDOM
 Imports CapaFunciones.ClaseCodeDOM
-
-Public Class frmCategoriasVista
+Public Class frmUnidadMedidaVista
     Dim dtcategoria As New DataTable
 
-
-    Private Sub frmCategoriasVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmUnidadMedidaVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarDatos()
     End Sub
 
-
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
-        Dim frm As New frmCategoria(0)
+        Dim frm As New frmUnidadMedida("")
         frm.Show()
         Me.Close()
     End Sub
@@ -24,7 +20,7 @@ Public Class frmCategoriasVista
             End If
             Dim cd As New Transaccion_lectura
             dtcategoria = New DataTable
-            dtcategoria = cd.DT_leer(New CE_dgv With {.Tipo = 1})
+            dtcategoria = cd.DT_leer(New CE_dgv With {.Tipo = 3})
             AgregarFilasDGV(dgvDatos, dtcategoria)
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -36,7 +32,7 @@ Public Class frmCategoriasVista
             AgregarColumnasDGV(dgv)
             If dt.Rows.Count > 0 Then
                 For i = 0 To dt.Rows.Count - 1
-                    dgv.Rows.Add(dt.Rows(i).Item("idcategoria"), dt.Rows(i).Item("nombre"))
+                    dgv.Rows.Add(dt.Rows(i).Item("idunidadmedida"), dt.Rows(i).Item("nombre"))
                 Next
             End If
             Dim colEditar As New DataGridViewButtonColumn()
@@ -63,9 +59,8 @@ Public Class frmCategoriasVista
         Try
             dgv.Rows.Clear()
             dgv.Columns.Clear()
-            dgv.Columns.Add("id", "id")
-            dgv.Columns.Add("Nombre", "CATEGORIA")
-            dgv.Columns("id").Visible = False
+            dgv.Columns.Add("id", "CODIGO")
+            dgv.Columns.Add("Nombre", "UNIDAD MEDIDA")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -75,12 +70,12 @@ Public Class frmCategoriasVista
         Try
             Select Case sender.COLUMNS(e.ColumnIndex).NAME
                 Case "colEditar"
-                    Dim frm As New frmCategoria(sender.ROWS(e.RowIndex).CELLS("id").value)
+                    Dim frm As New frmUnidadMedida(sender.ROWS(e.RowIndex).CELLS("id").value)
                     frm.Show()
                     Me.Close()
                 Case "colEliminar"
-                    Dim cd As New Transaccion_categoria
-                    If cd.SP_categoria(New CE_categoria With {.Tipo = 3, .idcategoria = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado")
+                    Dim cd As New Transaccion_unidadmedida
+                    If cd.SP_unidadmedida(New CE_unidadmedida With {.Tipo = 3, .idunidadmedida = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado")
                     CargarDatos()
             End Select
         Catch ex As Exception

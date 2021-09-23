@@ -10,7 +10,7 @@ Namespace ClaseCodeDOM
         Public USEID As String = "root"
         Public Password As String = "root"
         Public SERVERIP As String = IpComputadora()
-        Public conexion_base As String = "server=" & SERVERNAME & ";database=" & DATABASENAME & ";user id=" & USEID & ";password=" & Password & ";"
+        Public conexion_base As String = "server=" & SERVERNAME & ";database=" & DATABASENAME & ";user id=" & USEID & ";password=" & Password & ";SslMode=none"
 
         Private Function IpComputadora() As String
             Dim Ip_Pc As String

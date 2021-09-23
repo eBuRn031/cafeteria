@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmCategoriasVista
+Partial Class frmUnidadMedidaVista
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,10 +22,19 @@ Partial Class frmCategoriasVista
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dgvDatos = New System.Windows.Forms.DataGridView()
         Me.btnnuevo = New System.Windows.Forms.Button()
+        Me.dgvDatos = New System.Windows.Forms.DataGridView()
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'btnnuevo
+        '
+        Me.btnnuevo.Location = New System.Drawing.Point(12, 12)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Size = New System.Drawing.Size(75, 28)
+        Me.btnnuevo.TabIndex = 3
+        Me.btnnuevo.Text = "Nuevo"
+        Me.btnnuevo.UseVisualStyleBackColor = True
         '
         'dgvDatos
         '
@@ -35,31 +44,22 @@ Partial Class frmCategoriasVista
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvDatos.Size = New System.Drawing.Size(349, 142)
-        Me.dgvDatos.TabIndex = 0
+        Me.dgvDatos.TabIndex = 2
         '
-        'btnnuevo
-        '
-        Me.btnnuevo.Location = New System.Drawing.Point(12, 12)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(75, 28)
-        Me.btnnuevo.TabIndex = 1
-        Me.btnnuevo.Text = "Nuevo"
-        Me.btnnuevo.UseVisualStyleBackColor = True
-        '
-        'frmCategoriasVista
+        'frmUnidadMedidaVista
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(377, 198)
+        Me.ClientSize = New System.Drawing.Size(371, 196)
         Me.Controls.Add(Me.btnnuevo)
         Me.Controls.Add(Me.dgvDatos)
-        Me.Name = "frmCategoriasVista"
-        Me.Text = "frmCategoriasVista"
+        Me.Name = "frmUnidadMedidaVista"
+        Me.Text = "frmUnidadMedidaVista"
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents dgvDatos As DataGridView
     Friend WithEvents btnnuevo As Button
+    Friend WithEvents dgvDatos As DataGridView
 End Class

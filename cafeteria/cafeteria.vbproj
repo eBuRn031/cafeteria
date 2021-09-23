@@ -129,10 +129,24 @@
     <Compile Include="frmCategoriasVista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmUnidadMedida.Designer.vb">
+      <DependentUpon>frmUnidadMedida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnidadMedida.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUnidadMedidaVista.Designer.vb">
+      <DependentUpon>frmUnidadMedidaVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUnidadMedidaVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdlGlobal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -151,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategoriasVista.resx">
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnidadMedida.resx">
+      <DependentUpon>frmUnidadMedida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUnidadMedidaVista.resx">
+      <DependentUpon>frmUnidadMedidaVista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
