@@ -1,7 +1,7 @@
 ﻿Imports CapaEntidades.ClaseCodeDOM
 Imports CapaFunciones.ClaseCodeDOM
 Public Class frmUnidadMedidaVista
-    Dim dtcategoria As New DataTable
+    Dim dtunidadmedida As New DataTable
 
     Private Sub frmUnidadMedidaVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarDatos()
@@ -19,9 +19,9 @@ Public Class frmUnidadMedidaVista
                 dgvDatos.DataSource = Nothing
             End If
             Dim cd As New Transaccion_lectura
-            dtcategoria = New DataTable
-            dtcategoria = cd.DT_leer(New CE_dgv With {.Tipo = 3})
-            AgregarFilasDGV(dgvDatos, dtcategoria)
+            dtunidadmedida = New DataTable
+            dtunidadmedida = cd.DT_leer(New CE_dgv With {.Tipo = 3})
+            AgregarFilasDGV(dgvDatos, dtunidadmedida)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

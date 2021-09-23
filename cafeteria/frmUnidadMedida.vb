@@ -17,9 +17,9 @@ Public Class frmUnidadMedida
         Dim cd As New Transaccion_unidadmedida
         Select Case id.Length
             Case 0
-                If cd.SP_unidadmedida(New CE_unidadmedida With {.Tipo = 1, .idunidadmedida = txtcodigo.Text, .nombre = txtunidadmedida.Text}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar Categoria")
+                If cd.SP_unidadmedida(New CE_unidadmedida With {.Tipo = 1, .idunidadmedida = txtcodigo.Text, .nombre = txtunidadmedida.Text}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar")
             Case Else
-                If cd.SP_unidadmedida(New CE_unidadmedida With {.Tipo = 2, .idunidadmedida = id, .nombre = txtunidadmedida.Text}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar Categoria")
+                If cd.SP_unidadmedida(New CE_unidadmedida With {.Tipo = 2, .idunidadmedida = id, .nombre = txtunidadmedida.Text}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar")
         End Select
         Me.Close()
     End Sub

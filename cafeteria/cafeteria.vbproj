@@ -129,6 +129,18 @@
     <Compile Include="frmCategoriasVista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPersonas.Designer.vb">
+      <DependentUpon>frmPersonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPersonasVista.Designer.vb">
+      <DependentUpon>frmPersonasVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPersonasVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmUnidadMedida.Designer.vb">
       <DependentUpon>frmUnidadMedida.vb</DependentUpon>
     </Compile>
@@ -139,6 +151,12 @@
       <DependentUpon>frmUnidadMedidaVista.vb</DependentUpon>
     </Compile>
     <Compile Include="frmUnidadMedidaVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.vb">
+      <DependentUpon>frmUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MdlGlobal.vb" />
@@ -166,11 +184,20 @@
     <EmbeddedResource Include="frmCategoriasVista.resx">
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonas.resx">
+      <DependentUpon>frmPersonas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPersonasVista.resx">
+      <DependentUpon>frmPersonasVista.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUnidadMedida.resx">
       <DependentUpon>frmUnidadMedida.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnidadMedidaVista.resx">
       <DependentUpon>frmUnidadMedidaVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
