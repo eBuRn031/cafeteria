@@ -23,17 +23,17 @@ Namespace ClaseCodeDOM
         
         '
         Public  Property idusuarios As Nullable(of Integer)
-        
+
         '
-        Public  Property idventas As String
-        
+        Public Property idventas As Nullable(Of Integer)
+
         'C compra
         'V venta
-        Public  Property compraventa As String
-        
+        Public Property compraventa As String
+
         '
-        Public  Property fechahora As Date
-        
+        Public Property fechahora As Date
+
         'E efectivo
         'Q qr
         Public  Property tipopago As String
@@ -44,10 +44,10 @@ Namespace ClaseCodeDOM
         Public Sub New()
             
         End Sub
-        
+
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _iddinero As Integer, ByVal _idusuarios As Integer, ByVal _idventas As String, ByVal _compraventa As String, ByVal _fechahora As Date, ByVal _tipopago As String, ByVal _monto As Decimal)
-            
+        Public Sub New(ByVal _Tipo As Integer, ByVal _iddinero As Integer, ByVal _idusuarios As Integer, ByVal _idventas As Integer, ByVal _compraventa As String, ByVal _fechahora As Date, ByVal _tipopago As String, ByVal _monto As Decimal)
+
             Tipo = _Tipo
             iddinero = _iddinero
             idusuarios = _idusuarios

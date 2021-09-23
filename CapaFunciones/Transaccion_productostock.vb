@@ -17,74 +17,74 @@ Imports MySql.Data.MySqlClient
 Imports System.Transactions
 
 Namespace ClaseCodeDOM
-    
+
     Public Class Transaccion_productostock
         Inherits Conexion
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_productostock(ByVal CE_productostock As CE_productostock) As Boolean
-            
-Dim boolproductostock as Boolean
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_productostock as new cd_productostock' =  ----------------------DEFINE productostock ---------------
-            boolproductostock = CD_productostock.SP_productostock(CE_productostock, conexion)' =  ---------------------- VALOR PARA productostock ---------------
-                   
-if boolproductostock then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return boolvalidador
-Catch ex As Exception
-boolvalidador = false
-return boolvalidador
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim boolproductostock As Boolean
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_productostock As New CD_productostock ' =  ----------------------DEFINE productostock ---------------
+                        boolproductostock = cd_productostock.SP_productostock(CE_productostock, conexion) ' =  ---------------------- VALOR PARA productostock ---------------
+
+                        If boolproductostock Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
-        
+
         Public Overridable Function DT_productostock(ByVal CE_productostock As CE_productostock) As DataTable
-            
-Dim dtproductostock as new DataTable
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_productostock as new cd_productostock' =  ----------------------DEFINE productostock ---------------
-            dtproductostock = CD_productostock.DT_productostock(CE_productostock, conexion)' =  ---------------------- VALOR PARA productostock ---------------
-                   
-if dtproductostock.rows.count > 0 then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return dtproductostock
-Catch ex As Exception
-boolvalidador = false
-'return  dtproductostock
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim dtproductostock As New DataTable
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_productostock As New CD_productostock ' =  ----------------------DEFINE productostock ---------------
+                        dtproductostock = cd_productostock.DT_productostock(CE_productostock, conexion) ' =  ---------------------- VALOR PARA productostock ---------------
+
+                        If dtproductostock.Rows.Count > 0 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return dtproductostock
+                    Catch ex As Exception
+                        boolvalidador = False
+                        'return  dtproductostock
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
     End Class
 End Namespace

@@ -38,10 +38,10 @@ Namespace ClaseCodeDOM
         
         '
         Public  Property precio2 As Decimal
-        
+
         '
-        Public  Property imagen As String
-        
+        Public Property imagen As Byte()
+
         '
         Public  Property fecreg As Date
         
@@ -51,10 +51,10 @@ Namespace ClaseCodeDOM
         Public Sub New()
             
         End Sub
-        
+
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _idproducto As Integer, ByVal _idunidadmedida As String, ByVal _idcategoria As Integer, ByVal _idusuarios As Integer, ByVal _nombre As String, ByVal _precio1 As Decimal, ByVal _precio2 As Decimal, ByVal _imagen As String, ByVal _fecreg As Date, ByVal _fecmod As Date)
-            
+        Public Sub New(ByVal _Tipo As Integer, ByVal _idproducto As Integer, ByVal _idunidadmedida As String, ByVal _idcategoria As Integer, ByVal _idusuarios As Integer, ByVal _nombre As String, ByVal _precio1 As Decimal, ByVal _precio2 As Decimal, ByVal _imagen As Byte(), ByVal _fecreg As Date, ByVal _fecmod As Date)
+
             Tipo = _Tipo
             idproducto = _idproducto
             idunidadmedida = _idunidadmedida

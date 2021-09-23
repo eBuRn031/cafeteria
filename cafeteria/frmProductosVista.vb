@@ -1,17 +1,15 @@
 ﻿Imports CapaDatos.ClaseCodeDOM
 Imports CapaEntidades.ClaseCodeDOM
 Imports CapaFunciones.ClaseCodeDOM
-Public Class frmPersonasVista
-
-    Dim dtpersonas As New DataTable
+Public Class frmProductosVista
+    Dim dtproductos As New DataTable
 
     Private Sub frmCategoriasVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarDatos()
     End Sub
 
-
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
-        Dim frm As New frmPersonas(0)
+        Dim frm As New frmProductos(0)
         frm.Show()
         Me.Close()
     End Sub
@@ -22,9 +20,9 @@ Public Class frmPersonasVista
                 dgvDatos.DataSource = Nothing
             End If
             Dim cd As New Transaccion_lectura
-            dtpersonas = New DataTable
-            dtpersonas = cd.DT_leer(New CE_dgv With {.Tipo = 5})
-            AgregarFilasDGV(dgvDatos, dtpersonas)
+            dtproductos = New DataTable
+            dtproductos = cd.DT_leer(New CE_dgv With {.Tipo = 8})
+            AgregarFilasDGV(dgvDatos, dtproductos)
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -35,12 +33,12 @@ Public Class frmPersonasVista
             AgregarColumnasDGV(dgv)
             If dt.Rows.Count > 0 Then
                 For i = 0 To dt.Rows.Count - 1
-                    dgv.Rows.Add(dt.Rows(i).Item("idpersonas"), dt.Rows(i).Item("dni"), dt.Rows(i).Item("nombre"), dt.Rows(i).Item("apellidos"), dt.Rows(i).Item("celular"))
+                    dgv.Rows.Add(dt.Rows(i).Item("idproducto"), dt.Rows(i).Item("nombrecategoria"), dt.Rows(i).Item("nombreproducto"), dt.Rows(i).Item("precio1"), dt.Rows(i).Item("precio2"))
                 Next
             End If
             Dim colEditar As New DataGridViewButtonColumn()
             Dim colEliminar As New DataGridViewButtonColumn()
-            Dim colUsuario As New DataGridViewButtonColumn()
+            Dim colImagen As New DataGridViewButtonColumn()
 
             colEditar.Name = "colEditar"
             colEditar.HeaderText = "EDITAR"
@@ -50,14 +48,14 @@ Public Class frmPersonasVista
             colEliminar.HeaderText = "ELIMINAR"
             colEliminar.Text = "Eliminar"
             colEliminar.UseColumnTextForButtonValue = True
-            colUsuario.Name = "colUsuario"
-            colUsuario.HeaderText = "USUARIO"
-            colUsuario.Text = "Usuario"
-            colUsuario.UseColumnTextForButtonValue = True
+            colImagen.Name = "colImagen"
+            colImagen.HeaderText = "IMAGEN"
+            colImagen.Text = "Imagen"
+            colImagen.UseColumnTextForButtonValue = True
 
             dgv.Columns.Add(colEditar)
             dgv.Columns.Add(colEliminar)
-            dgv.Columns.Add(colUsuario)
+            dgv.Columns.Add(colImagen)
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -69,10 +67,10 @@ Public Class frmPersonasVista
             dgv.Rows.Clear()
             dgv.Columns.Clear()
             dgv.Columns.Add("id", "id")
-            dgv.Columns.Add("dni", "DNI")
-            dgv.Columns.Add("nombre", "NOMBRE")
-            dgv.Columns.Add("apellidos", "APELLIDO")
-            dgv.Columns.Add("celular", "CELULAR")
+            dgv.Columns.Add("nombrecategoria", "CATEGORIA")
+            dgv.Columns.Add("nombreproducto", "PRODUCTO")
+            dgv.Columns.Add("precio1", "PRECIO 1")
+            dgv.Columns.Add("precio2", "PRECIO 2")
             dgv.Columns("id").Visible = False
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -83,17 +81,19 @@ Public Class frmPersonasVista
         Try
             Select Case sender.COLUMNS(e.ColumnIndex).NAME
                 Case "colEditar"
-                    Dim frm As New frmPersonas(sender.ROWS(e.RowIndex).CELLS("id").value)
+                    Dim frm As New frmProductos(sender.ROWS(e.RowIndex).CELLS("id").value)
                     frm.Show()
                     Me.Close()
                 Case "colEliminar"
-                    Dim cd As New Transaccion_personas
-                    If cd.SP_personas(New CE_personas With {.Tipo = 3, .idpersonas = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado")
+                    ' NOTA NO DEBERIA DE PERMITIR ELIMINAR UN PRODUCTO, YA QUE INFLUYE 
+                    ' EN MULTIPLES CAMPOS, SE DEBE REALIZAR PRUEBAS
+                    Dim cd As New Transaccion_producto
+                    If cd.SP_producto(New CE_producto With {.Tipo = 3, .idproducto = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado")
                     CargarDatos()
-                Case "colUsuario"
-                    Dim frm As New frmUsuario(sender.ROWS(e.RowIndex).CELLS("id").value)
-                    frm.Show()
-                    Me.Close()
+                Case "colImagen"
+
+                    MsgBox("Se debe de mostrar la imagen del producto")
+
             End Select
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -108,10 +108,10 @@ Public Class frmPersonasVista
         Dim dtNew As DataTable
 
         ' copiamos la estructura al nuevo dt
-        dtNew = dtpersonas.Clone()
+        dtNew = dtproductos.Clone()
 
         ' realizamos la consulta con select
-        rows = dtpersonas.Select("dni like '%" & sender.Text & "%' Or nombre Like '%" & sender.Text & "%'Or apellidos Like '%" & sender.Text & "%'")
+        rows = dtproductos.Select("nombreproducto like '%" & sender.Text & "%' Or nombrecategoria Like '%" & sender.Text & "%'")
 
         ' recorremos la consulta dada y agregamos sus valores al nuevo dt creado(dtNew)
         For Each dr As DataRow In rows
@@ -120,6 +120,5 @@ Public Class frmPersonasVista
         ' enviamos para que llene el datagridview
         AgregarFilasDGV(dgvDatos, dtNew)
     End Sub
-
 
 End Class

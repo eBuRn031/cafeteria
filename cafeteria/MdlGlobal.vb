@@ -1,7 +1,11 @@
-﻿Imports CapaEntidades.ClaseCodeDOM
+﻿Imports System.IO
+Imports CapaEntidades.ClaseCodeDOM
 Imports CapaFunciones.ClaseCodeDOM
 
 Module MdlGlobal
+
+    Public _idusuario As Integer = 1
+
 #Region "CARGAR COMBOBOX"
 
     ' todas las consultas deben de contener los campos codigo y nombre
@@ -45,5 +49,43 @@ Module MdlGlobal
     End Sub
 #End Region
 
+#Region "Imagen"
+
+    'convertir binario a imágen
+    Public Function Bytes_Imagen(ByVal Imagen As Byte()) As Image
+        Try
+            'si hay imagen
+            If Not Imagen Is Nothing Then
+                'caturar array con memorystream hacia Bin
+                Dim Bin As New MemoryStream(Imagen)
+                'con el método FroStream de Image obtenemos imagen
+                Dim Resultado As Image = Image.FromStream(Bin)
+                'y la retornamos
+                Return Resultado
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            Return Nothing
+        End Try
+    End Function
+
+    'CONVERTIR IMAGEN EN BINARIO
+    'convertir imagen a binario
+    Public Function Imagen_Bytes(ByVal Imagen As Image) As Byte()
+        'si hay imagen
+        If Not Imagen Is Nothing Then
+            'variable de datos binarios en stream(flujo)
+            Dim Bin As New MemoryStream
+            'convertir a bytes
+            Imagen.Save(Bin, Imaging.ImageFormat.Jpeg)
+            'retorna binario
+            Return Bin.GetBuffer
+        Else
+            Return Nothing
+        End If
+    End Function
+
+#End Region
 
 End Module
