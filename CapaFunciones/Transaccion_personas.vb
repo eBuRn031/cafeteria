@@ -17,74 +17,74 @@ Imports MySql.Data.MySqlClient
 Imports System.Transactions
 
 Namespace ClaseCodeDOM
-    
+
     Public Class Transaccion_personas
         Inherits Conexion
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_personas(ByVal CE_personas As CE_personas) As Boolean
-            
-Dim boolpersonas as Boolean
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_personas as new cd_personas' =  ----------------------DEFINE personas ---------------
-            boolpersonas = CD_personas.SP_personas(CE_personas, conexion)' =  ---------------------- VALOR PARA personas ---------------
-                   
-if boolpersonas then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return boolvalidador
-Catch ex As Exception
-boolvalidador = false
-return boolvalidador
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim boolpersonas As Boolean
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_personas As New CD_personas ' =  ----------------------DEFINE personas ---------------
+                        boolpersonas = cd_personas.SP_personas(CE_personas, conexion) ' =  ---------------------- VALOR PARA personas ---------------
+
+                        If boolpersonas Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
-        
+
         Public Overridable Function DT_personas(ByVal CE_personas As CE_personas) As DataTable
-            
-Dim dtpersonas as new DataTable
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_personas as new cd_personas' =  ----------------------DEFINE personas ---------------
-            dtpersonas = CD_personas.DT_personas(CE_personas, conexion)' =  ---------------------- VALOR PARA personas ---------------
-                   
-if dtpersonas.rows.count > 0 then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return dtpersonas
-Catch ex As Exception
-boolvalidador = false
-'return  dtpersonas
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim dtpersonas As New DataTable
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_personas As New CD_personas ' =  ----------------------DEFINE personas ---------------
+                        dtpersonas = cd_personas.DT_personas(CE_personas, conexion) ' =  ---------------------- VALOR PARA personas ---------------
+
+                        If dtpersonas.Rows.Count > 0 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return dtpersonas
+                    Catch ex As Exception
+                        boolvalidador = False
+                        'return  dtpersonas
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
     End Class
 End Namespace

@@ -26,7 +26,13 @@ Namespace ClaseCodeDOM
         
         '
         Public  Property fecha As String
-        
+
+        '
+        Public Property fechaInicio As String
+
+        '
+        Public Property fechaFinal As String
+
         '
         Public  Property montoinicio As Decimal
         
@@ -39,14 +45,16 @@ Namespace ClaseCodeDOM
         Public Sub New()
             
         End Sub
-        
+
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _idcajadinero As Integer, ByVal _idusuarios As Integer, ByVal _fecha As String, ByVal _montoinicio As Decimal, ByVal _montofinal As Decimal, ByVal _comentario As String)
-            
+        Public Sub New(ByVal _Tipo As Integer, ByVal _idcajadinero As Integer, ByVal _idusuarios As Integer, ByVal _fecha As String, ByVal _fechaInicio As String, ByVal _fechaFinal As String, ByVal _montoinicio As Decimal, ByVal _montofinal As Decimal, ByVal _comentario As String)
+
             Tipo = _Tipo
             idcajadinero = _idcajadinero
             idusuarios = _idusuarios
             fecha = _fecha
+            fechaInicio = _fechaInicio
+            fechaFinal = _fechaFinal
             montoinicio = _montoinicio
             montofinal = _montofinal
             comentario = _comentario

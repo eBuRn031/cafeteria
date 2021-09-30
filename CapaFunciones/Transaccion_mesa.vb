@@ -17,74 +17,74 @@ Imports MySql.Data.MySqlClient
 Imports System.Transactions
 
 Namespace ClaseCodeDOM
-    
+
     Public Class Transaccion_mesa
         Inherits Conexion
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_mesa(ByVal CE_mesa As CE_mesa) As Boolean
-            
-Dim boolmesa as Boolean
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_mesa as new cd_mesa' =  ----------------------DEFINE mesa ---------------
-            boolmesa = CD_mesa.SP_mesa(CE_mesa, conexion)' =  ---------------------- VALOR PARA mesa ---------------
-                   
-if boolmesa then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return boolvalidador
-Catch ex As Exception
-boolvalidador = false
-return boolvalidador
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim boolmesa As Boolean
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_mesa As New CD_mesa ' =  ----------------------DEFINE mesa ---------------
+                        boolmesa = cd_mesa.SP_mesa(CE_mesa, conexion) ' =  ---------------------- VALOR PARA mesa ---------------
+
+                        If boolmesa Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
-        
+
         Public Overridable Function DT_mesa(ByVal CE_mesa As CE_mesa) As DataTable
-            
-Dim dtmesa as new DataTable
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_mesa as new cd_mesa' =  ----------------------DEFINE mesa ---------------
-            dtmesa = CD_mesa.DT_mesa(CE_mesa, conexion)' =  ---------------------- VALOR PARA mesa ---------------
-                   
-if dtmesa.rows.count > 0 then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return dtmesa
-Catch ex As Exception
-boolvalidador = false
-'return  dtmesa
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim dtmesa As New DataTable
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_mesa As New CD_mesa ' =  ----------------------DEFINE mesa ---------------
+                        dtmesa = cd_mesa.DT_mesa(CE_mesa, conexion) ' =  ---------------------- VALOR PARA mesa ---------------
+
+                        If dtmesa.Rows.Count > 0 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return dtmesa
+                    Catch ex As Exception
+                        boolvalidador = False
+                        'return  dtmesa
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
     End Class
 End Namespace

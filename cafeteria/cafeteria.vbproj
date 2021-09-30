@@ -117,6 +117,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCajaChica.Designer.vb">
+      <DependentUpon>frmCajaChica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCajaChica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCajaChicaVista.Designer.vb">
+      <DependentUpon>frmCajaChicaVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCajaChicaVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCategoria.Designer.vb">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </Compile>
@@ -127,6 +139,18 @@
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
     </Compile>
     <Compile Include="frmCategoriasVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesas.Designer.vb">
+      <DependentUpon>frmMesas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMesasVista.Designer.vb">
+      <DependentUpon>frmMesasVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesasVista.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPersonas.Designer.vb">
@@ -190,11 +214,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmCajaChica.resx">
+      <DependentUpon>frmCajaChica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCajaChicaVista.resx">
+      <DependentUpon>frmCajaChicaVista.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategoriasVista.resx">
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesas.resx">
+      <DependentUpon>frmMesas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesasVista.resx">
+      <DependentUpon>frmMesasVista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonas.resx">
       <DependentUpon>frmPersonas.vb</DependentUpon>

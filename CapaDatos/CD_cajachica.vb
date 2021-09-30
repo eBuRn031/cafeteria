@@ -29,7 +29,9 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
                 cmd.Parameters.AddWithValue("_idcajadinero", dts.idcajadinero) ' =  --- VALOR PARA idcajadinero | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
-                cmd.Parameters.AddWithValue("_fecha", dts.fecha) ' =  --- VALOR PARA fecha | 
+                cmd.Parameters.AddWithValue("_fecha", Convert.ToDateTime(dts.fecha).ToString("yyyy-MM-dd")) ' =  --- VALOR PARA fecha | 
+                cmd.Parameters.AddWithValue("_fechaInicio", Convert.ToDateTime(dts.fechaInicio).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechaInicio | 
+                cmd.Parameters.AddWithValue("_fechaFinal", Convert.ToDateTime(dts.fechaFinal).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechaFinal | 
                 cmd.Parameters.AddWithValue("_montoinicio", dts.montoinicio) ' =  --- VALOR PARA montoinicio | 
                 cmd.Parameters.AddWithValue("_montofinal", dts.montofinal) ' =  --- VALOR PARA montofinal | 
                 cmd.Parameters.AddWithValue("_comentario", dts.comentario) ' =  --- VALOR PARA comentario | 
@@ -57,6 +59,8 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_idcajadinero", dts.idcajadinero) ' =  --- VALOR PARA idcajadinero | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
                 cmd.Parameters.AddWithValue("_fecha", dts.fecha) ' =  --- VALOR PARA fecha | 
+                cmd.Parameters.AddWithValue("_fechaInicio", dts.fechaInicio) ' =  --- VALOR PARA fechaInicio | 
+                cmd.Parameters.AddWithValue("_fechaFinal", dts.fechaFinal) ' =  --- VALOR PARA fechaFinal | 
                 cmd.Parameters.AddWithValue("_montoinicio", dts.montoinicio) ' =  --- VALOR PARA montoinicio | 
                 cmd.Parameters.AddWithValue("_montofinal", dts.montofinal) ' =  --- VALOR PARA montofinal | 
                 cmd.Parameters.AddWithValue("_comentario", dts.comentario) ' =  --- VALOR PARA comentario | 
@@ -64,7 +68,7 @@ Namespace ClaseCodeDOM
 
 
                 dt.Load(dataReader) ' =  --- INSTRUCCIONES ---
-                dataReader.close() ' =  cerrando datareader
+                dataReader.Close() ' =  cerrando datareader
                 Return dt
             Catch ex As Exception
                 Return Nothing
