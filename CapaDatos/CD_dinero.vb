@@ -15,24 +15,24 @@ Imports CapaEntidades.ClaseCodeDOM
 Imports MySql.Data.MySqlClient
 
 Namespace ClaseCodeDOM
-    
+
     Public Class CD_dinero
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_dinero(ByVal dts As CE_dinero, ByVal cnn As MySqlConnection) As Boolean
             Try
-cmd = New MySqlCommand("SP_dinero")
-cmd.CommandType = CommandType.StoredProcedure
-cmd.Connection = cnn
+                cmd = New MySqlCommand("SP_dinero")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Connection = cnn
 
-cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
-            cmd.Parameters.AddWithValue("_iddinero", dts.iddinero) ' =  --- VALOR PARA iddinero | 
-            cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
-            cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
+                cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
+                cmd.Parameters.AddWithValue("_iddinero", dts.iddinero) ' =  --- VALOR PARA iddinero | 
+                cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
+                cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
                 cmd.Parameters.AddWithValue("_compraventa", dts.compraventa) ' =  --- VALOR PARA compraventa | C compra
                 'V venta
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora |  
                 cmd.Parameters.AddWithValue("_tipopago", dts.tipopago) ' =  --- VALOR PARA tipopago | E efectivo
                 'Q qr
                 cmd.Parameters.AddWithValue("_monto", dts.monto) ' =  --- VALOR PARA monto | 
@@ -62,7 +62,7 @@ cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
                 cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
                 cmd.Parameters.AddWithValue("_compraventa", dts.compraventa) ' =  --- VALOR PARA compraventa | C compra
                 'V venta
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
                 cmd.Parameters.AddWithValue("_tipopago", dts.tipopago) ' =  --- VALOR PARA tipopago | E efectivo
                 'Q qr
                 cmd.Parameters.AddWithValue("_monto", dts.monto) ' =  --- VALOR PARA monto | 
@@ -74,7 +74,7 @@ cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
                 Return dt
             Catch ex As Exception
                 Return Nothing
-            End Try' =  retorno---
+            End Try ' =  retorno---
         End Function
     End Class
 End Namespace

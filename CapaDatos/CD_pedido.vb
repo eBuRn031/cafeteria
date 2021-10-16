@@ -29,11 +29,14 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
                 cmd.Parameters.AddWithValue("_idpedido", dts.idpedido) ' =  --- VALOR PARA idpedido | 
                 cmd.Parameters.AddWithValue("_idmesa", dts.idmesa) ' =  --- VALOR PARA idmesa | 
+                cmd.Parameters.AddWithValue("_idpersonas", dts.idpersonas) ' =  --- VALOR PARA idpersonas | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
                 cmd.Parameters.AddWithValue("_numero", dts.numero) ' =  --- VALOR PARA numero | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
-                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 0 cancelado
+                '1 activo
+                '2 canjeado a comprobante
                 If cmd.ExecuteNonQuery Then
                     Return True
                 Else
@@ -57,11 +60,14 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
                 cmd.Parameters.AddWithValue("_idpedido", dts.idpedido) ' =  --- VALOR PARA idpedido | 
                 cmd.Parameters.AddWithValue("_idmesa", dts.idmesa) ' =  --- VALOR PARA idmesa | 
+                cmd.Parameters.AddWithValue("_idpersonas", dts.idpersonas) ' =  --- VALOR PARA idpersonas | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
                 cmd.Parameters.AddWithValue("_numero", dts.numero) ' =  --- VALOR PARA numero | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
-                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 0 cancelado
+                '1 activo
+                '2 canjeado a comprobante
                 Dim dataReader = cmd.ExecuteReader()
 
 

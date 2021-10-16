@@ -51,6 +51,9 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QrCode.Net.0.4.0.0\lib\net45\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.14.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -66,6 +69,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.26\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.12.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.12.0\lib\net452\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -90,6 +96,7 @@
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -129,6 +136,12 @@
     <Compile Include="frmCajaChicaVista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCanjeComprobante.Designer.vb">
+      <DependentUpon>frmCanjeComprobante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCanjeComprobante.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCategoria.Designer.vb">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </Compile>
@@ -141,6 +154,12 @@
     <Compile Include="frmCategoriasVista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmImpresion.Designer.vb">
+      <DependentUpon>frmImpresion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmImpresion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMesas.Designer.vb">
       <DependentUpon>frmMesas.vb</DependentUpon>
     </Compile>
@@ -151,6 +170,12 @@
       <DependentUpon>frmMesasVista.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMesasVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpcionesVenta.Designer.vb">
+      <DependentUpon>frmOpcionesVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpcionesVenta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPersonas.Designer.vb">
@@ -177,6 +202,18 @@
     <Compile Include="frmProductosVista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMesasSeleccion.Designer.vb">
+      <DependentUpon>frmMesasSeleccion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMesasSeleccion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPuntoVenta.Designer.vb">
+      <DependentUpon>frmPuntoVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPuntoVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmUnidadMedida.Designer.vb">
       <DependentUpon>frmUnidadMedida.vb</DependentUpon>
     </Compile>
@@ -195,6 +232,9 @@
     <Compile Include="frmUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MdlGeneral\Eventos.vb" />
+    <Compile Include="MdlGeneral\Reniec.vb" />
+    <Compile Include="MdlGeneral\Sunat.vb" />
     <Compile Include="MdlGlobal.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -220,17 +260,26 @@
     <EmbeddedResource Include="frmCajaChicaVista.resx">
       <DependentUpon>frmCajaChicaVista.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCanjeComprobante.resx">
+      <DependentUpon>frmCanjeComprobante.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCategoriasVista.resx">
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmImpresion.resx">
+      <DependentUpon>frmImpresion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMesas.resx">
       <DependentUpon>frmMesas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMesasVista.resx">
       <DependentUpon>frmMesasVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpcionesVenta.resx">
+      <DependentUpon>frmOpcionesVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonas.resx">
       <DependentUpon>frmPersonas.vb</DependentUpon>
@@ -243,6 +292,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductosVista.resx">
       <DependentUpon>frmProductosVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMesasSeleccion.resx">
+      <DependentUpon>frmMesasSeleccion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPuntoVenta.resx">
+      <DependentUpon>frmPuntoVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUnidadMedida.resx">
       <DependentUpon>frmUnidadMedida.vb</DependentUpon>
@@ -289,6 +344,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sin_imagen_disponible.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesallena.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mesavacia.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

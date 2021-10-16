@@ -22,6 +22,9 @@ Namespace ClaseCodeDOM
         Public  Property idventas As Nullable(of Integer)
         
         '
+        Public  Property idpedido As Nullable(of Integer)
+        
+        '
         Public  Property idusuarios As Nullable(of Integer)
         
         '
@@ -52,15 +55,20 @@ Namespace ClaseCodeDOM
         '
         Public  Property total As Decimal
         
+        '0 Anulado
+        '1 Activo
+        Public  Property estado As Nullable(of Integer)
+        
         Public Sub New()
             
         End Sub
         
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _idventas As Integer, ByVal _idusuarios As Integer, ByVal _idpersonas As Integer, ByVal _tipocomprobante As String, ByVal _fechahora As Date, ByVal _serie As String, ByVal _numero As Integer, ByVal _subtotal As Decimal, ByVal _igv As Decimal, ByVal _descuento As Decimal, ByVal _total As Decimal)
+        Public Sub New(ByVal _Tipo As Integer, ByVal _idventas As Integer, ByVal _idpedido As Integer, ByVal _idusuarios As Integer, ByVal _idpersonas As Integer, ByVal _tipocomprobante As String, ByVal _fechahora As Date, ByVal _serie As String, ByVal _numero As Integer, ByVal _subtotal As Decimal, ByVal _igv As Decimal, ByVal _descuento As Decimal, ByVal _total As Decimal, ByVal _estado As Integer)
             
             Tipo = _Tipo
             idventas = _idventas
+            idpedido = _idpedido
             idusuarios = _idusuarios
             idpersonas = _idpersonas
             tipocomprobante = _tipocomprobante
@@ -71,6 +79,7 @@ Namespace ClaseCodeDOM
             igv = _igv
             descuento = _descuento
             total = _total
+            estado = _estado
         End Sub
     End Class
 End Namespace

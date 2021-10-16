@@ -15,58 +15,58 @@ Imports CapaEntidades.ClaseCodeDOM
 Imports MySql.Data.MySqlClient
 
 Namespace ClaseCodeDOM
-    
+
     Public Class CD_detallepedido
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_detallepedido(ByVal dts As CE_detallepedido, ByVal cnn As MySqlConnection) As Boolean
             Try
-cmd = New MySqlCommand("SP_detallepedido")
-cmd.CommandType = CommandType.StoredProcedure
-cmd.Connection = cnn
+                cmd = New MySqlCommand("SP_detallepedido")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Connection = cnn
 
-cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
-            cmd.Parameters.AddWithValue("_pedido_idpedido", dts.pedido_idpedido) ' =  --- VALOR PARA pedido_idpedido | 
-            cmd.Parameters.AddWithValue("_producto_idproducto", dts.producto_idproducto) ' =  --- VALOR PARA producto_idproducto | 
-            cmd.Parameters.AddWithValue("_cantidad", dts.cantidad) ' =  --- VALOR PARA cantidad | 
-            cmd.Parameters.AddWithValue("_precio", dts.precio) ' =  --- VALOR PARA precio | 
-            cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
-            If cmd.ExecuteNonQuery Then
-Return True
-Else
-Return False
-End If
-Catch ex As Exception
-Return False
-End Try' =  --- INSTRUCCIONES ---
+                cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
+                cmd.Parameters.AddWithValue("_pedido_idpedido", dts.pedido_idpedido) ' =  --- VALOR PARA pedido_idpedido | 
+                cmd.Parameters.AddWithValue("_producto_idproducto", dts.producto_idproducto) ' =  --- VALOR PARA producto_idproducto | 
+                cmd.Parameters.AddWithValue("_cantidad", dts.cantidad) ' =  --- VALOR PARA cantidad | 
+                cmd.Parameters.AddWithValue("_precio", dts.precio) ' =  --- VALOR PARA precio | 
+                cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
+                If cmd.ExecuteNonQuery Then
+                    Return True
+                Else
+                    Return False
+                End If
+            Catch ex As Exception
+                Return False
+            End Try ' =  --- INSTRUCCIONES ---
         End Function
-        
-        Public Overridable Function DT_detallepedido(ByVal dts As CE_detallepedido, ByVal cnn As MySqlConnection) As datatable
+
+        Public Overridable Function DT_detallepedido(ByVal dts As CE_detallepedido, ByVal cnn As MySqlConnection) As DataTable
             Try
- 
-cmd = New MySqlCommand("SP_detallepedido")
-cmd.CommandType = CommandType.StoredProcedure
-cmd.Connection = cnn
-Dim dt As New DataTable
-Dim da As New MySqlDataAdapter(Cmd)
+
+                cmd = New MySqlCommand("SP_detallepedido")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Connection = cnn
+                Dim dt As New DataTable
+                Dim da As New MySqlDataAdapter(cmd)
 
 
-cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
-            cmd.Parameters.AddWithValue("_pedido_idpedido", dts.pedido_idpedido) ' =  --- VALOR PARA pedido_idpedido | 
-            cmd.Parameters.AddWithValue("_producto_idproducto", dts.producto_idproducto) ' =  --- VALOR PARA producto_idproducto | 
-            cmd.Parameters.AddWithValue("_cantidad", dts.cantidad) ' =  --- VALOR PARA cantidad | 
-            cmd.Parameters.AddWithValue("_precio", dts.precio) ' =  --- VALOR PARA precio | 
-            cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
-              Dim dataReader = cmd.ExecuteReader()
- 
-           
-            dt.Load(dataReader)' =  --- INSTRUCCIONES ---
-            dataReader.close()' =  cerrando datareader
-            Return dt
-Catch ex As Exception
+                cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
+                cmd.Parameters.AddWithValue("_pedido_idpedido", dts.pedido_idpedido) ' =  --- VALOR PARA pedido_idpedido | 
+                cmd.Parameters.AddWithValue("_producto_idproducto", dts.producto_idproducto) ' =  --- VALOR PARA producto_idproducto | 
+                cmd.Parameters.AddWithValue("_cantidad", dts.cantidad) ' =  --- VALOR PARA cantidad | 
+                cmd.Parameters.AddWithValue("_precio", dts.precio) ' =  --- VALOR PARA precio | 
+                cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
+                Dim dataReader = cmd.ExecuteReader()
+
+
+                dt.Load(dataReader) ' =  --- INSTRUCCIONES ---
+                dataReader.Close() ' =  cerrando datareader
+                Return dt
+            Catch ex As Exception
                 Return Nothing
-            End Try' =  retorno---
+            End Try ' =  retorno---
         End Function
     End Class
 End Namespace

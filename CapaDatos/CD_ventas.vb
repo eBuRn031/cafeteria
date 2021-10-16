@@ -15,30 +15,33 @@ Imports CapaEntidades.ClaseCodeDOM
 Imports MySql.Data.MySqlClient
 
 Namespace ClaseCodeDOM
-    
+
     Public Class CD_ventas
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_ventas(ByVal dts As CE_ventas, ByVal cnn As MySqlConnection) As Boolean
             Try
-cmd = New MySqlCommand("SP_ventas")
-cmd.CommandType = CommandType.StoredProcedure
-cmd.Connection = cnn
+                cmd = New MySqlCommand("SP_ventas")
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Connection = cnn
 
-cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
-            cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
-            cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
-            cmd.Parameters.AddWithValue("_idpersonas", dts.idpersonas) ' =  --- VALOR PARA idpersonas | 
+                cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
+                cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
+                cmd.Parameters.AddWithValue("_idpedido", dts.idpedido) ' =  --- VALOR PARA idpedido | 
+                cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
+                cmd.Parameters.AddWithValue("_idpersonas", dts.idpersonas) ' =  --- VALOR PARA idpersonas | 
                 cmd.Parameters.AddWithValue("_tipocomprobante", dts.tipocomprobante) ' =  --- VALOR PARA tipocomprobante | 03 boletas
                 '01 facturas
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
                 cmd.Parameters.AddWithValue("_serie", dts.serie) ' =  --- VALOR PARA serie | 
                 cmd.Parameters.AddWithValue("_numero", dts.numero) ' =  --- VALOR PARA numero | 
                 cmd.Parameters.AddWithValue("_subtotal", dts.subtotal) ' =  --- VALOR PARA subtotal | 
                 cmd.Parameters.AddWithValue("_igv", dts.igv) ' =  --- VALOR PARA igv | 
                 cmd.Parameters.AddWithValue("_descuento", dts.descuento) ' =  --- VALOR PARA descuento | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
+                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 0 Anulado
+                '1 Activo
                 If cmd.ExecuteNonQuery Then
                     Return True
                 Else
@@ -61,17 +64,20 @@ cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
 
                 cmd.Parameters.AddWithValue("_Tipo", dts.Tipo) ' = --- BD ---
                 cmd.Parameters.AddWithValue("_idventas", dts.idventas) ' =  --- VALOR PARA idventas | 
+                cmd.Parameters.AddWithValue("_idpedido", dts.idpedido) ' =  --- VALOR PARA idpedido | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
                 cmd.Parameters.AddWithValue("_idpersonas", dts.idpersonas) ' =  --- VALOR PARA idpersonas | 
                 cmd.Parameters.AddWithValue("_tipocomprobante", dts.tipocomprobante) ' =  --- VALOR PARA tipocomprobante | 03 boletas
                 '01 facturas
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
                 cmd.Parameters.AddWithValue("_serie", dts.serie) ' =  --- VALOR PARA serie | 
                 cmd.Parameters.AddWithValue("_numero", dts.numero) ' =  --- VALOR PARA numero | 
                 cmd.Parameters.AddWithValue("_subtotal", dts.subtotal) ' =  --- VALOR PARA subtotal | 
                 cmd.Parameters.AddWithValue("_igv", dts.igv) ' =  --- VALOR PARA igv | 
                 cmd.Parameters.AddWithValue("_descuento", dts.descuento) ' =  --- VALOR PARA descuento | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
+                cmd.Parameters.AddWithValue("_estado", dts.estado) ' =  --- VALOR PARA estado | 0 Anulado
+                '1 Activo
                 Dim dataReader = cmd.ExecuteReader()
 
 
@@ -80,7 +86,7 @@ cmd.Parameters.AddWithValue("_Tipo",dts.Tipo)' = --- BD ---
                 Return dt
             Catch ex As Exception
                 Return Nothing
-            End Try' =  retorno---
+            End Try ' =  retorno---
         End Function
     End Class
 End Namespace

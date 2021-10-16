@@ -10,7 +10,6 @@ Public Class frmCategoriasVista
         CargarDatos()
     End Sub
 
-
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         Dim frm As New frmCategoria(0)
         frm.Show()

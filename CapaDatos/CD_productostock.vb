@@ -30,7 +30,7 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_idproductostock", dts.idproductostock) ' =  --- VALOR PARA idproductostock | 
                 cmd.Parameters.AddWithValue("_idproducto", dts.idproducto) ' =  --- VALOR PARA idproducto | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
                 cmd.Parameters.AddWithValue("_entrada", dts.entrada) ' =  --- VALOR PARA entrada | 
                 cmd.Parameters.AddWithValue("_salida", dts.salida) ' =  --- VALOR PARA salida | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 
@@ -59,7 +59,7 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_idproductostock", dts.idproductostock) ' =  --- VALOR PARA idproductostock | 
                 cmd.Parameters.AddWithValue("_idproducto", dts.idproducto) ' =  --- VALOR PARA idproducto | 
                 cmd.Parameters.AddWithValue("_idusuarios", dts.idusuarios) ' =  --- VALOR PARA idusuarios | 
-                cmd.Parameters.AddWithValue("_fechahora", dts.fechahora) ' =  --- VALOR PARA fechahora | 
+                cmd.Parameters.AddWithValue("_fechahora", Convert.ToDateTime(dts.fechahora).ToString("yyyy-MM-dd HH:mm:ss")) ' =  --- VALOR PARA fechahora | 
                 cmd.Parameters.AddWithValue("_entrada", dts.entrada) ' =  --- VALOR PARA entrada | 
                 cmd.Parameters.AddWithValue("_salida", dts.salida) ' =  --- VALOR PARA salida | 
                 cmd.Parameters.AddWithValue("_total", dts.total) ' =  --- VALOR PARA total | 

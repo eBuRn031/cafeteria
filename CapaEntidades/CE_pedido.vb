@@ -25,6 +25,9 @@ Namespace ClaseCodeDOM
         Public  Property idmesa As Nullable(of Integer)
         
         '
+        Public  Property idpersonas As Nullable(of Integer)
+        
+        '
         Public  Property idusuarios As Nullable(of Integer)
         
         '
@@ -36,7 +39,9 @@ Namespace ClaseCodeDOM
         '
         Public  Property fechahora As Date
         
-        '
+        '0 cancelado
+        '1 activo
+        '2 canjeado a comprobante
         Public  Property estado As Nullable(of Integer)
         
         Public Sub New()
@@ -44,11 +49,12 @@ Namespace ClaseCodeDOM
         End Sub
         
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _idpedido As Integer, ByVal _idmesa As Integer, ByVal _idusuarios As Integer, ByVal _numero As Integer, ByVal _total As Decimal, ByVal _fechahora As Date, ByVal _estado As Integer)
+        Public Sub New(ByVal _Tipo As Integer, ByVal _idpedido As Integer, ByVal _idmesa As Integer, ByVal _idpersonas As Integer, ByVal _idusuarios As Integer, ByVal _numero As Integer, ByVal _total As Decimal, ByVal _fechahora As Date, ByVal _estado As Integer)
             
             Tipo = _Tipo
             idpedido = _idpedido
             idmesa = _idmesa
+            idpersonas = _idpersonas
             idusuarios = _idusuarios
             numero = _numero
             total = _total
