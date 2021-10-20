@@ -49,6 +49,7 @@ Public Class frmCajaChica
     End Sub
 
     Private Sub frmCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         abrirComboboxProductos()
         If id <> 0 Then
             cargarDatosConsulta()

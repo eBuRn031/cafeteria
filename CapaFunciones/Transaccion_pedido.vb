@@ -160,6 +160,42 @@ Namespace ClaseCodeDOM
             ' =  ------------ INSTRUCCIONES ------------
         End Function
 
+        Public Overridable Function SP_pedidoAnulado(ByVal CE_pedido As CE_pedido, listaProductoStock As List(Of CE_productostock)) As Boolean
+
+            Dim boolpedido As Integer = 1
+            Dim boolvalidador As Boolean
+
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_pedido As New CD_pedido ' =  ----------------------DEFINE pedido ---------------
+                        If cd_pedido.SP_pedido(CE_pedido, conexion) Then boolpedido *= 1 Else boolpedido *= 0 ' =  ---------------------- VALOR PARA pedido ---------------
+
+                        For Each item As CE_productostock In listaProductoStock
+                            Dim cd_productostock As New CD_productostock
+                            If cd_productostock.SP_productostock(item, conexion) Then boolpedido *= 1 Else boolpedido *= 0
+                        Next
+
+                        If boolpedido = 1 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
+        End Function
 
     End Class
 End Namespace

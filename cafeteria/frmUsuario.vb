@@ -58,6 +58,7 @@ Public Class frmUsuario
     End Sub
 
     Private Sub frmCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         Dim dt As New DataTable
         dt.Columns.Add("id")
         dt.Columns.Add("nombre")

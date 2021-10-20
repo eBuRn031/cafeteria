@@ -4,19 +4,17 @@ Imports CapaFunciones.ClaseCodeDOM
 
 Module MdlGlobal
 
-    Public _idusuario As Integer = 1
-    Public _nombreusuario As String = "Oliver"
+    Public _idusuario As Integer
+    Public _nombreusuario As String
+    Public _tipoUsuario As String
 
     'datos de la empresa y sucursal
     Public _ruc_empresa As String
-    Public _ID_empresa As String
     Public _razon_social As String
-    Public _nombre_comercial As String
     Public _titulo_impresion As String
     Public _direccion_empresa As String
     Public _telefono_empresa As String
     Public _correo_empresa As String
-    Public _direccion_sucursal As String
     Public _pagina_web As String
     Public _ubigeo_sucursal As String
     Public _pie_pagina As String

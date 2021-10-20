@@ -40,14 +40,7 @@ Public Class frmOpcionesVenta
 
         Dim frm As New frmPuntoVenta(id, nombreMesa)
         frm.Show()
-
-        Dim frmCollection As New FormCollection()
-        frmCollection = Application.OpenForms()
-        If frmCollection.Item("frmMesasSeleccion").IsHandleCreated Then
-            Dim frmx As Form = frmCollection.Item("frmMesasSeleccion")
-            frmx.Close()
-        End If
-        Me.Close()
+        cerrarPrincipal()
     End Sub
 
     Private Sub btnCanjearComprobante_Click(sender As Object, e As EventArgs) Handles btnCanjearComprobante.Click
@@ -67,7 +60,19 @@ Public Class frmOpcionesVenta
             Exit Sub
         End If
         Dim frm As New frmCanjeComprobante(id, nombreMesa)
-        frm.ShowDialog()
+        frm.Show()
+        cerrarPrincipal()
     End Sub
+
+    Sub cerrarPrincipal()
+        Dim frmCollection As New FormCollection()
+        frmCollection = Application.OpenForms()
+        If frmCollection.Item("frmMesasSeleccion").IsHandleCreated Then
+            Dim frmx As Form = frmCollection.Item("frmMesasSeleccion")
+            frmx.Close()
+        End If
+        Me.Close()
+    End Sub
+
 
 End Class

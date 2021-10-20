@@ -17,74 +17,125 @@ Imports MySql.Data.MySqlClient
 Imports System.Transactions
 
 Namespace ClaseCodeDOM
-    
+
     Public Class Transaccion_ventas
         Inherits Conexion
-        
+
         Private cmd As MySqlCommand
-        
+
         Public Overridable Function SP_ventas(ByVal CE_ventas As CE_ventas) As Boolean
-            
-Dim boolventas as Boolean
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_ventas as new cd_ventas' =  ----------------------DEFINE ventas ---------------
-            boolventas = CD_ventas.SP_ventas(CE_ventas, conexion)' =  ---------------------- VALOR PARA ventas ---------------
-                   
-if boolventas then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return boolvalidador
-Catch ex As Exception
-boolvalidador = false
-return boolvalidador
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim boolventas As Boolean
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_ventas As New CD_ventas ' =  ----------------------DEFINE ventas ---------------
+                        boolventas = cd_ventas.SP_ventas(CE_ventas, conexion) ' =  ---------------------- VALOR PARA ventas ---------------
+
+                        If boolventas Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
-        
+
         Public Overridable Function DT_ventas(ByVal CE_ventas As CE_ventas) As DataTable
-            
-Dim dtventas as new DataTable
-Dim boolvalidador as Boolean
 
-Using Scope As New TransactionScope()
-       Using conexion As New MySqlConnection(conexion_base)
-try
-       conexion.Open() ' = ABRIENDO CONEXION
-            Dim cd_ventas as new cd_ventas' =  ----------------------DEFINE ventas ---------------
-            dtventas = CD_ventas.DT_ventas(CE_ventas, conexion)' =  ---------------------- VALOR PARA ventas ---------------
-                   
-if dtventas.rows.count > 0 then    
-boolvalidador = true
-Scope.Complete()
-else
-boolvalidador = false
-end if
-return dtventas
-Catch ex As Exception
-boolvalidador = false
-'return  dtventas
-Finally
- conexion.Close()
- End Try
-End Using
+            Dim dtventas As New DataTable
+            Dim boolvalidador As Boolean
 
-       End Using
- 
-      ' =  ------------ INSTRUCCIONES ------------
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+                        Dim cd_ventas As New CD_ventas ' =  ----------------------DEFINE ventas ---------------
+                        dtventas = cd_ventas.DT_ventas(CE_ventas, conexion) ' =  ---------------------- VALOR PARA ventas ---------------
+
+                        If dtventas.Rows.Count > 0 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return dtventas
+                    Catch ex As Exception
+                        boolvalidador = False
+                        'return  dtventas
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
         End Function
+
+
+        Public Overridable Function SP_CanjeVentas(Ce_Pedidos As CE_pedido, Ce_Ventas As CE_ventas, listaDetalleVenta As List(Of CE_detalleventas), ce_dinero As CE_dinero) As Boolean
+
+            Dim boolventas As Integer = 1
+            Dim boolvalidador As Boolean
+            Dim dtventa As New DataTable
+            Dim idventa As Integer
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+                        conexion.Open() ' = ABRIENDO CONEXION
+
+                        Dim cdpedidos As New CD_pedido
+                        If cdpedidos.SP_pedido(Ce_Pedidos, conexion) Then boolventas *= 1 Else boolventas *= 0
+
+                        Dim cd_ventas As New CD_ventas ' =  ----------------------DEFINE ventas ---------------
+                        dtventa = cd_ventas.DT_ventas(Ce_Ventas, conexion)
+                        Ce_Ventas.numero = CInt(dtventa.Rows(0).Item("numero"))
+                        idventa = CInt(dtventa.Rows(0).Item("idventas"))
+
+                        For Each item As CE_detalleventas In listaDetalleVenta
+                            Dim CD_detalleventas As New CD_detalleventas
+                            item.ventas_idventas = idventa
+                            If CD_detalleventas.SP_detalleventas(item, conexion) Then boolventas *= 1 Else boolventas *= 0
+                        Next
+
+                        Dim cfd As New CD_dinero
+                        If cfd.SP_dinero(ce_dinero, conexion) Then boolventas *= 1 Else boolventas *= 0
+
+                        If boolventas = 1 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                        conexion.Close()
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
+        End Function
+
     End Class
 End Namespace

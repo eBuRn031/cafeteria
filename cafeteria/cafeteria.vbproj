@@ -154,10 +154,28 @@
     <Compile Include="frmCategoriasVista.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmImpresion.Designer.vb">
-      <DependentUpon>frmImpresion.vb</DependentUpon>
+    <Compile Include="frmComprobantes.Designer.vb">
+      <DependentUpon>frmComprobantes.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmImpresion.vb">
+    <Compile Include="frmComprobantes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpresa.Designer.vb">
+      <DependentUpon>frmEmpresa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpresa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImpresiones.Designer.vb">
+      <DependentUpon>FrmImpresiones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImpresiones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMesas.Designer.vb">
@@ -188,6 +206,12 @@
       <DependentUpon>frmPersonasVista.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPersonasVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProductos.Designer.vb">
@@ -269,8 +293,17 @@
     <EmbeddedResource Include="frmCategoriasVista.resx">
       <DependentUpon>frmCategoriasVista.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmImpresion.resx">
-      <DependentUpon>frmImpresion.vb</DependentUpon>
+    <EmbeddedResource Include="frmComprobantes.resx">
+      <DependentUpon>frmComprobantes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImpresiones.resx">
+      <DependentUpon>FrmImpresiones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMesas.resx">
       <DependentUpon>frmMesas.vb</DependentUpon>
@@ -286,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonasVista.resx">
       <DependentUpon>frmPersonasVista.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.vb</DependentUpon>

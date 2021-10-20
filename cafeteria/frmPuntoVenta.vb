@@ -365,6 +365,7 @@ Public Class frmPuntoVenta
             validar_persona()
             insertar_datos()
             limpiar_form()
+            imprimirVenta()
         End If
     End Sub
     Sub validar_persona()
@@ -456,5 +457,48 @@ Public Class frmPuntoVenta
         busquedaproducto("todo")
     End Sub
 
+    Sub imprimirVenta()
+        Try
+            Dim cf As New Transaccion_lectura
+            Dim dtx As New DataTable
+            dtx = cf.DT_leer(New CE_dgv With {.Tipo = 26, .Codigo_1 = _id_mesa})
+
+            Dim mesa As String
+            Dim ce_p As New CE_personas
+            Dim ce_v As New CE_pedido
+            Dim ce_d As New List(Of CE_detallepedido)
+
+            If dtx.Rows.Count > 0 Then
+                mesa = dtx.Rows(0).Item("mesa")
+
+                ce_p.dni = dtx.Rows(0).Item("dni")
+                ce_p.nombre = dtx.Rows(0).Item("cliente")
+                ce_p.apellidos = dtx.Rows(0).Item("apellidos")
+                ce_p.direccion = dtx.Rows(0).Item("direccion")
+
+                ce_v.idusuarios = dtx.Rows(0).Item("idusuarios")
+                ce_v.fechahora = dtx.Rows(0).Item("fechahora")
+                ce_v.numero = dtx.Rows(0).Item("numero")
+                ce_v.total = dtx.Rows(0).Item("TotalV")
+
+                For i = 0 To dtx.Rows.Count - 1
+                    Dim d As New CE_detallepedido
+                    d.producto_idproducto = dtx.Rows(i).Item("producto_idproducto")
+                    d.cantidad = dtx.Rows(i).Item("cantidad")
+                    d.precio = dtx.Rows(i).Item("precio")
+                    d.total = dtx.Rows(i).Item("TotalD")
+                    ce_d.Add(d)
+                Next
+
+            End If
+
+            Dim f As New FrmImpresiones
+            f.cargar_datosPedido(mesa, ce_p, ce_v, ce_d)
+            f.PPC_MUESTRA.Document = f.PD_OrdenVenta
+            f.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 
 End Class

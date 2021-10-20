@@ -44,6 +44,7 @@ Public Class frmCategoria
     End Sub
 
     Private Sub frmCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TopMost = True
         If id <> 0 Then
             cargarDatosConsulta()
         End If
