@@ -113,6 +113,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _5027832_document_file_page_paper_icon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("5027832_document_file_page_paper_icon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _6071845_folder_progress_task_update_update_task_progress_icon() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("6071845_folder_progress_task_update_update task progress_icon", resourceCulture)
@@ -196,6 +206,16 @@ Namespace My.Resources
         Friend ReadOnly Property Sin_imagen_disponible() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Sin_imagen_disponible", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property usericon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("usericon", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -124,14 +124,14 @@
   <data name="Sin_imagen_disponible" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Sin_imagen_disponible.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="photoicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\photoicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="deleteicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deleteicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mesallena" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mesallena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="5027832_document_file_page_paper_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\5027832_document_file_page_paper_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="photoicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\photoicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mesavacia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mesavacia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,17 +139,23 @@
   <data name="3298601_document_new_new document_plus_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3298601_document_new_new document_plus_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="728934_enter_login_right_arrow_forward_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\728934_enter_login_right_arrow_forward_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="299068_add_sign_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\299068_add_sign_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="6071845_folder_progress_task_update_update task progress_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\6071845_folder_progress_task_update_update task progress_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="299110_check_sign_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\299110_check_sign_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="728934_enter_login_right_arrow_forward_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\728934_enter_login_right_arrow_forward_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="39263_print_printer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\39263_print_printer_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mesallena" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mesallena.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +163,7 @@
   <data name="299068_add_sign_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\299068_add_sign_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="6071845_folder_progress_task_update_update task progress_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\6071845_folder_progress_task_update_update task progress_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usericon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usericon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

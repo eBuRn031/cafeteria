@@ -38,23 +38,21 @@ Public Class frmMesasVista
                     dgv.Rows.Add(dt.Rows(i).Item("idmesa"), dt.Rows(i).Item("nombre"), dt.Rows(i).Item("descripcion"))
                 Next
             End If
-            Dim colEditar As New DataGridViewButtonColumn()
-            Dim colEliminar As New DataGridViewButtonColumn()
+            Dim colEditar As New DataGridViewImageColumn()
+            Dim colEliminar As New DataGridViewImageColumn()
 
             colEditar.Name = "colEditar"
             colEditar.HeaderText = "EDITAR"
-            colEditar.Text = "Editar"
-            colEditar.UseColumnTextForButtonValue = True
+            colEditar.Image = My.Resources.editicon
+            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom
+
             colEliminar.Name = "colEliminar"
             colEliminar.HeaderText = "ELIMINAR"
-            colEliminar.Text = "Eliminar"
-            colEliminar.UseColumnTextForButtonValue = True
-
+            colEliminar.Image = My.Resources.deleteicon
+            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
 
             dgv.Columns.Add(colEditar)
             dgv.Columns.Add(colEliminar)
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -129,5 +127,21 @@ Public Class frmMesasVista
         End Try
     End Sub
 
+    Private Sub dgvDatos_CellMouseEnter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseEnter
+        If e.RowIndex >= 0 Then
+            sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Aqua
+        End If
+    End Sub
+
+    Private Sub dgvDatos_CellMouseLeave(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseLeave
+        If e.RowIndex >= 0 Then
+            Dim fila As Integer = e.RowIndex + 1
+            If fila Mod 2 = 0 Then
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = colorAlternado
+            Else
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+            End If
+        End If
+    End Sub
 
 End Class

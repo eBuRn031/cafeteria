@@ -19,6 +19,9 @@ Module MdlGlobal
     Public _ubigeo_sucursal As String
     Public _pie_pagina As String
 
+    Public colorSeleccion As Color = Color.Teal
+    Public colorAlternado As Color = Color.Lavender
+
 #Region "CARGAR COMBOBOX"
 
     ' todas las consultas deben de contener los campos codigo y nombre
@@ -398,11 +401,12 @@ Module MdlGlobal
 #Region "ESTILO GRILLAS"
     Sub style_grilla(ByVal dgv As DataGridView)
         dgv.AllowUserToAddRows = False
+        dgv.BackgroundColor = Color.White
         dgv.BorderStyle = BorderStyle.None
         dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgv.EnableHeadersVisualStyles = False
-        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Lavender
-        dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Teal
+        dgv.AlternatingRowsDefaultCellStyle.BackColor = colorAlternado
+        dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = colorSeleccion
         dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
         dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Indigo

@@ -37,27 +37,29 @@ Public Class frmProductosVista
                     dgv.Rows.Add(dt.Rows(i).Item("idproducto"), dt.Rows(i).Item("nombrecategoria"), dt.Rows(i).Item("nombreproducto"), dt.Rows(i).Item("precio1"), dt.Rows(i).Item("precio2"))
                 Next
             End If
-            Dim colEditar As New DataGridViewButtonColumn()
-            Dim colEliminar As New DataGridViewButtonColumn()
-            Dim colImagen As New DataGridViewButtonColumn()
+
+            Dim colEditar As New DataGridViewImageColumn()
+            Dim colEliminar As New DataGridViewImageColumn()
+            Dim colImagen As New DataGridViewImageColumn()
 
             colEditar.Name = "colEditar"
             colEditar.HeaderText = "EDITAR"
-            colEditar.Text = "Editar"
-            colEditar.UseColumnTextForButtonValue = True
+            colEditar.Image = My.Resources.editicon
+            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom
+
             colEliminar.Name = "colEliminar"
             colEliminar.HeaderText = "ELIMINAR"
-            colEliminar.Text = "Eliminar"
-            colEliminar.UseColumnTextForButtonValue = True
+            colEliminar.Image = My.Resources.deleteicon
+            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
+
             colImagen.Name = "colImagen"
             colImagen.HeaderText = "IMAGEN"
-            colImagen.Text = "Imagen"
-            colImagen.UseColumnTextForButtonValue = True
+            colImagen.Image = My.Resources.photoicon
+            colImagen.ImageLayout = DataGridViewImageCellLayout.Normal
 
             dgv.Columns.Add(colEditar)
             dgv.Columns.Add(colEliminar)
             dgv.Columns.Add(colImagen)
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -88,9 +90,11 @@ Public Class frmProductosVista
                 Case "colEliminar"
                     ' NOTA NO DEBERIA DE PERMITIR ELIMINAR UN PRODUCTO, YA QUE INFLUYE 
                     ' EN MULTIPLES CAMPOS, SE DEBE REALIZAR PRUEBAS
-                    Dim cd As New Transaccion_producto
-                    If cd.SP_producto(New CE_producto With {.Tipo = 3, .idproducto = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado")
-                    CargarDatos()
+                    If MsgBox("Solo se pueden eliminar productos que no tengan una venta. ¿Desea eliminar el producto " & sender.ROWS(e.RowIndex).CELLS("nombreproducto").value & "?", MsgBoxStyle.OkCancel, "Advertencia") = MsgBoxResult.Ok Then
+                        Dim cd As New Transaccion_producto
+                        If cd.SP_producto(New CE_producto With {.Tipo = 3, .idproducto = sender.ROWS(e.RowIndex).CELLS("id").value}) Then MsgBox("Registro Eliminado") Else MsgBox("Error al eliminar")
+                        CargarDatos()
+                    End If
                 Case "colImagen"
 
                     MsgBox("Se debe de mostrar la imagen del producto")
@@ -139,5 +143,23 @@ Public Class frmProductosVista
             MessageBox.Show(ex.Message, "Error")
         End Try
     End Sub
+
+    Private Sub dgvDatos_CellMouseEnter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseEnter
+        If e.RowIndex >= 0 Then
+            sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Aqua
+        End If
+    End Sub
+
+    Private Sub dgvDatos_CellMouseLeave(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseLeave
+        If e.RowIndex >= 0 Then
+            Dim fila As Integer = e.RowIndex + 1
+            If fila Mod 2 = 0 Then
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = colorAlternado
+            Else
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+            End If
+        End If
+    End Sub
+
 
 End Class

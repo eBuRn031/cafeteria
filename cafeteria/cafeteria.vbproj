@@ -401,6 +401,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1562703_coffee_creative_good idea_icon.ico" />
+    <None Include="Resources\usericon.png" />
+    <None Include="Resources\5027832_document_file_page_paper_icon.png" />
     <None Include="Resources\6071845_folder_progress_task_update_update task progress_icon.png" />
     <None Include="Resources\3298601_document_new_new document_plus_icon.png" />
     <None Include="Resources\39263_print_printer_icon.ico" />
