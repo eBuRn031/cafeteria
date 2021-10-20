@@ -59,6 +59,11 @@ Public Class frmUsuario
 
     Private Sub frmCategoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.TopMost = True
+        cargarTipo()
+        cargarDatosConsulta()
+    End Sub
+
+    Sub cargarTipo()
         Dim dt As New DataTable
         dt.Columns.Add("id")
         dt.Columns.Add("nombre")
@@ -75,12 +80,8 @@ Public Class frmUsuario
         dr("nombre") = "Administrador"
         dt.Rows.Add(dr)
 
-        cbtipo.DataSource = dt
-        cbtipo.ValueMember = "id"
-        cbtipo.DisplayMember = "nombre"
-
+        Cargar_Combobox_General(cbtipo, dt, "nombre", "id")
         cbtipo.SelectedIndex = 0
-        cargarDatosConsulta()
     End Sub
 
 End Class

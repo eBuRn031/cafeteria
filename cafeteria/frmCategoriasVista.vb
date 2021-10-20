@@ -7,6 +7,7 @@ Public Class frmCategoriasVista
 
 
     Private Sub frmCategoriasVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        style_grilla(dgvDatos)
         CargarDatos()
     End Sub
 
@@ -87,27 +88,22 @@ Public Class frmCategoriasVista
         End Try
     End Sub
 
-
-    'Private Sub TxtBusquedaProveedor_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-    '    ' creamos un array
-    '    Dim rows As DataRow()
-
-    '    ' creamos donde almacenaremos la consulta sin editar el dt_cliente
-    '    Dim dtNew As DataTable
-
-    '    ' copiamos la estructura al nuevo dt
-    '    dtNew = dtHospitalizados.Clone()
-
-    '    ' realizamos la consulta con select
-    '    rows = dtHospitalizados.Select("Dni like '%" & sender.Text & "%' Or ApellidoNombres Like '%" & sender.Text & "%'")
-
-    '    ' recorremos la consulta dada y agregamos sus valores al nuevo dt creado(dtNew)
-    '    For Each dr As DataRow In rows
-    '        dtNew.ImportRow(dr)
-    '    Next
-    '    ' enviamos para que llene el datagridview
-    '    AgregarFilasDGV(dgvDatos, dtNew)
-    'End Sub
-
+    Private Sub DgvCajas_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dgvDatos.RowPostPaint
+        Try
+            Dim NumeroFila As String = (e.RowIndex + 1).ToString 'Obtiene el número de filas
+            While NumeroFila.Length < sender.RowCount.ToString.Length
+                NumeroFila = "0" & NumeroFila 'Agrega un cero a los que tienen un dígito menos
+            End While
+            Dim size As SizeF = e.Graphics.MeasureString(NumeroFila, Me.Font)
+            If sender.RowHeadersWidth < CInt(size.Width + 20) Then
+                sender.RowHeadersWidth = CInt(size.Width + 20)
+            End If
+            Dim Obj As Brush = SystemBrushes.ControlText
+            'Dibuja el número dentro del controltext
+            e.Graphics.DrawString(NumeroFila, Me.Font, Obj, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2))
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        End Try
+    End Sub
 
 End Class

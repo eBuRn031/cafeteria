@@ -22,6 +22,7 @@ Partial Class frmProductos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtruta = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -45,145 +46,188 @@ Partial Class frmProductos
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(7, 41)
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.Indigo
+        Me.Label6.Location = New System.Drawing.Point(12, 60)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 27
         Me.Label6.Text = "Categoria"
         '
         'txtruta
         '
+        Me.txtruta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtruta.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtruta.Location = New System.Drawing.Point(86, 146)
+        Me.txtruta.Location = New System.Drawing.Point(14, 220)
+        Me.txtruta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtruta.MaxLength = 20
         Me.txtruta.Name = "txtruta"
         Me.txtruta.ReadOnly = True
-        Me.txtruta.Size = New System.Drawing.Size(135, 20)
-        Me.txtruta.TabIndex = 26
+        Me.txtruta.Size = New System.Drawing.Size(216, 23)
+        Me.txtruta.TabIndex = 8
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(7, 149)
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Indigo
+        Me.Label5.Location = New System.Drawing.Point(12, 203)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 13)
+        Me.Label5.Size = New System.Drawing.Size(51, 13)
         Me.Label5.TabIndex = 25
         Me.Label5.Text = "Imagen"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 123)
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Indigo
+        Me.Label4.Location = New System.Drawing.Point(152, 156)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 23
         Me.Label4.Text = "Precio 2"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 97)
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Indigo
+        Me.Label3.Location = New System.Drawing.Point(12, 156)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 13)
+        Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 21
         Me.Label3.Text = "Precio 1"
         '
         'txtnombre
         '
+        Me.txtnombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtnombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtnombre.Location = New System.Drawing.Point(86, 12)
+        Me.txtnombre.Location = New System.Drawing.Point(14, 30)
+        Me.txtnombre.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtnombre.MaxLength = 20
         Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(184, 20)
-        Me.txtnombre.TabIndex = 20
+        Me.txtnombre.Size = New System.Drawing.Size(274, 23)
+        Me.txtnombre.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(7, 15)
+        Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Indigo
+        Me.Label2.Location = New System.Drawing.Point(12, 13)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 19
         Me.Label2.Text = "Nombre"
         '
         'btnAgregar
         '
-        Me.btnAgregar.Location = New System.Drawing.Point(12, 172)
+        Me.btnAgregar.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregar.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(167, Byte), Integer), CType(CType(69, Byte), Integer))
+        Me.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnAgregar.Image = Global.cafeteria.My.Resources.Resources._85350_accept_icon
+        Me.btnAgregar.Location = New System.Drawing.Point(14, 253)
+        Me.btnAgregar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAgregar.Name = "btnAgregar"
-        Me.btnAgregar.Size = New System.Drawing.Size(481, 23)
-        Me.btnAgregar.TabIndex = 17
-        Me.btnAgregar.Text = "Guardar"
-        Me.btnAgregar.UseVisualStyleBackColor = True
+        Me.btnAgregar.Size = New System.Drawing.Size(533, 49)
+        Me.btnAgregar.TabIndex = 7
+        Me.btnAgregar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAgregar.UseVisualStyleBackColor = False
         '
         'cbcategoria
         '
+        Me.cbcategoria.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbcategoria.FormattingEnabled = True
-        Me.cbcategoria.Location = New System.Drawing.Point(86, 38)
+        Me.cbcategoria.Location = New System.Drawing.Point(14, 77)
+        Me.cbcategoria.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbcategoria.Name = "cbcategoria"
-        Me.cbcategoria.Size = New System.Drawing.Size(184, 21)
-        Me.cbcategoria.TabIndex = 28
+        Me.cbcategoria.Size = New System.Drawing.Size(274, 24)
+        Me.cbcategoria.TabIndex = 2
         '
         'cbunidadmedida
         '
+        Me.cbunidadmedida.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbunidadmedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbunidadmedida.FormattingEnabled = True
-        Me.cbunidadmedida.Location = New System.Drawing.Point(86, 67)
+        Me.cbunidadmedida.Location = New System.Drawing.Point(14, 125)
+        Me.cbunidadmedida.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbunidadmedida.Name = "cbunidadmedida"
-        Me.cbunidadmedida.Size = New System.Drawing.Size(184, 21)
-        Me.cbunidadmedida.TabIndex = 30
+        Me.cbunidadmedida.Size = New System.Drawing.Size(274, 24)
+        Me.cbunidadmedida.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 70)
+        Me.Label7.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.Indigo
+        Me.Label7.Location = New System.Drawing.Point(12, 108)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(79, 13)
+        Me.Label7.Size = New System.Drawing.Size(90, 13)
         Me.Label7.TabIndex = 29
         Me.Label7.Text = "Unidad Medida"
         '
         'pbimagen
         '
+        Me.pbimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pbimagen.Image = Global.cafeteria.My.Resources.Resources.Sin_imagen_disponible
-        Me.pbimagen.Location = New System.Drawing.Point(276, 12)
+        Me.pbimagen.Location = New System.Drawing.Point(294, 13)
+        Me.pbimagen.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pbimagen.Name = "pbimagen"
-        Me.pbimagen.Size = New System.Drawing.Size(217, 150)
+        Me.pbimagen.Size = New System.Drawing.Size(253, 232)
         Me.pbimagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbimagen.TabIndex = 31
         Me.pbimagen.TabStop = False
         '
         'btnimagen
         '
-        Me.btnimagen.Location = New System.Drawing.Point(227, 144)
+        Me.btnimagen.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnimagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnimagen.Image = Global.cafeteria.My.Resources.Resources.photoicon
+        Me.btnimagen.Location = New System.Drawing.Point(238, 204)
+        Me.btnimagen.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnimagen.Name = "btnimagen"
-        Me.btnimagen.Size = New System.Drawing.Size(43, 23)
-        Me.btnimagen.TabIndex = 32
-        Me.btnimagen.Text = "X"
+        Me.btnimagen.Size = New System.Drawing.Size(50, 41)
+        Me.btnimagen.TabIndex = 6
+        Me.btnimagen.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnimagen.UseVisualStyleBackColor = True
         '
         'nudprecio1
         '
         Me.nudprecio1.DecimalPlaces = 2
-        Me.nudprecio1.Location = New System.Drawing.Point(86, 95)
+        Me.nudprecio1.Location = New System.Drawing.Point(14, 173)
+        Me.nudprecio1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudprecio1.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudprecio1.Name = "nudprecio1"
-        Me.nudprecio1.Size = New System.Drawing.Size(184, 20)
-        Me.nudprecio1.TabIndex = 33
+        Me.nudprecio1.Size = New System.Drawing.Size(134, 23)
+        Me.nudprecio1.TabIndex = 4
         Me.nudprecio1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nudprecio2
         '
+        Me.nudprecio2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.nudprecio2.DecimalPlaces = 2
-        Me.nudprecio2.Location = New System.Drawing.Point(86, 121)
+        Me.nudprecio2.Location = New System.Drawing.Point(154, 173)
+        Me.nudprecio2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudprecio2.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudprecio2.Name = "nudprecio2"
-        Me.nudprecio2.Size = New System.Drawing.Size(184, 20)
-        Me.nudprecio2.TabIndex = 34
+        Me.nudprecio2.Size = New System.Drawing.Size(134, 23)
+        Me.nudprecio2.TabIndex = 5
         Me.nudprecio2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'frmProductos
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(505, 202)
+        Me.BackColor = System.Drawing.Color.Lavender
+        Me.ClientSize = New System.Drawing.Size(553, 310)
         Me.Controls.Add(Me.nudprecio2)
         Me.Controls.Add(Me.nudprecio1)
         Me.Controls.Add(Me.btnimagen)
@@ -199,8 +243,13 @@ Partial Class frmProductos
         Me.Controls.Add(Me.txtnombre)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnAgregar)
+        Me.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.ForeColor = System.Drawing.Color.Gray
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmProductos"
-        Me.Text = "frmProductos"
+        Me.Text = "PRODUCTOS"
         CType(Me.pbimagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudprecio1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudprecio2, System.ComponentModel.ISupportInitialize).EndInit()

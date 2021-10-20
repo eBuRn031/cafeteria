@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>1562703_coffee_creative_good idea_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -386,6 +389,26 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mesavacia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\299110_check_sign_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\728934_enter_login_right_arrow_forward_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\299068_add_sign_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1562703_coffee_creative_good idea_icon.ico" />
+    <None Include="Resources\6071845_folder_progress_task_update_update task progress_icon.png" />
+    <None Include="Resources\3298601_document_new_new document_plus_icon.png" />
+    <None Include="Resources\39263_print_printer_icon.ico" />
+    <None Include="Resources\photoicon.ico" />
+    <None Include="Resources\editicon.ico" />
+    <None Include="Resources\deleteicon.ico" />
+    <None Include="Resources\85350_accept_icon.ico" />
+    <None Include="Resources\299068_add_sign_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

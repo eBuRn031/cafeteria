@@ -5,8 +5,8 @@
     End Sub
 
     Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblruc.Text = "RUC : " & _ruc_empresa
-        lblempresa.Text = " EMPRESA : " & _razon_social
+        lblruc.Text = _ruc_empresa
+        lblempresa.Text = _razon_social
         LblUsuario.Text = _nombreusuario
         If _tipoUsuario = "A" Then lbltipo.Text = "Administrador" Else lbltipo.Text = "Vendedor"
     End Sub

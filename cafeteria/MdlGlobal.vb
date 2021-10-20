@@ -41,6 +41,22 @@ Module MdlGlobal
         End Try
     End Sub
 
+    Sub Cargar_Combobox_General(ByVal com As ComboBox, ByVal dt As DataTable, ByVal texto As String, ByVal valor As String)
+        Try
+            If (dt.Rows.Count > Nothing) Then
+                com.DataSource = dt
+                com.DisplayMember = texto
+                com.ValueMember = valor
+                com.DropDownWidth = DropDownWidth(com)
+            Else
+                com.DataSource = Nothing
+                com.Items.Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     ' le da tamaño al desplegable del combobox
     Public Function DropDownWidth(ByVal myCombo As ComboBox) As Integer
         Dim maxWidth As Integer = 0
@@ -53,13 +69,6 @@ Module MdlGlobal
         Return maxWidth
     End Function
 
-#End Region
-
-#Region "DGV"
-    Sub AlternarColoresDgv(ByVal dgv As DataGridView)
-        dgv.RowsDefaultCellStyle.BackColor = Color.LightGray
-        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White
-    End Sub
 #End Region
 
 #Region "Imagen"
@@ -357,6 +366,51 @@ Module MdlGlobal
         End If
     End Function
 
+#End Region
+
+#Region "COMPLETANDO CON CEROS"
+    Public Function completando_ceros(ByVal cad As String) As String
+        If cad.Length = 1 Then
+            cad = "0000000" & cad
+        End If
+        If cad.Length = 2 Then
+            cad = "000000" & cad
+        End If
+        If cad.Length = 3 Then
+            cad = "00000" & cad
+        End If
+        If cad.Length = 4 Then
+            cad = "0000" & cad
+        End If
+        If cad.Length = 5 Then
+            cad = "000" & cad
+        End If
+        If cad.Length = 6 Then
+            cad = "00" & cad
+        End If
+        If cad.Length = 7 Then
+            cad = "0" & cad
+        End If
+        Return cad
+    End Function
+#End Region
+
+#Region "ESTILO GRILLAS"
+    Sub style_grilla(ByVal dgv As DataGridView)
+        dgv.AllowUserToAddRows = False
+        dgv.BorderStyle = BorderStyle.None
+        dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        dgv.EnableHeadersVisualStyles = False
+        dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Lavender
+        dgv.AlternatingRowsDefaultCellStyle.SelectionBackColor = Color.Teal
+        dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.Indigo
+        dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        dgv.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+           Or System.Windows.Forms.AnchorStyles.Left) _
+           Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    End Sub
 #End Region
 
 End Module

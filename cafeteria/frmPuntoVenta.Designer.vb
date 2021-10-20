@@ -22,6 +22,7 @@ Partial Class frmPuntoVenta
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPuntoVenta))
         Me.pncategoria = New System.Windows.Forms.Panel()
         Me.pnproductos = New System.Windows.Forms.Panel()
         Me.pnventa = New System.Windows.Forms.Panel()
@@ -67,9 +68,10 @@ Partial Class frmPuntoVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pncategoria.AutoScroll = True
         Me.pncategoria.BackColor = System.Drawing.SystemColors.Control
-        Me.pncategoria.Location = New System.Drawing.Point(402, 37)
+        Me.pncategoria.Location = New System.Drawing.Point(469, 46)
+        Me.pncategoria.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pncategoria.Name = "pncategoria"
-        Me.pncategoria.Size = New System.Drawing.Size(332, 55)
+        Me.pncategoria.Size = New System.Drawing.Size(387, 68)
         Me.pncategoria.TabIndex = 0
         '
         'pnproductos
@@ -79,9 +81,10 @@ Partial Class frmPuntoVenta
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pnproductos.AutoScroll = True
         Me.pnproductos.BackColor = System.Drawing.SystemColors.Control
-        Me.pnproductos.Location = New System.Drawing.Point(400, 124)
+        Me.pnproductos.Location = New System.Drawing.Point(467, 153)
+        Me.pnproductos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnproductos.Name = "pnproductos"
-        Me.pnproductos.Size = New System.Drawing.Size(332, 348)
+        Me.pnproductos.Size = New System.Drawing.Size(387, 428)
         Me.pnproductos.TabIndex = 1
         '
         'pnventa
@@ -107,32 +110,35 @@ Partial Class frmPuntoVenta
         Me.pnventa.Controls.Add(Me.Label3)
         Me.pnventa.Controls.Add(Me.txtdocumento)
         Me.pnventa.Controls.Add(Me.Label2)
-        Me.pnventa.Location = New System.Drawing.Point(12, 12)
+        Me.pnventa.Location = New System.Drawing.Point(14, 15)
+        Me.pnventa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnventa.Name = "pnventa"
-        Me.pnventa.Size = New System.Drawing.Size(382, 460)
+        Me.pnventa.Size = New System.Drawing.Size(446, 566)
         Me.pnventa.TabIndex = 2
         '
         'txtdireccion
         '
-        Me.txtdireccion.Location = New System.Drawing.Point(3, 112)
+        Me.txtdireccion.Location = New System.Drawing.Point(3, 138)
+        Me.txtdireccion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdireccion.Name = "txtdireccion"
-        Me.txtdireccion.Size = New System.Drawing.Size(376, 20)
+        Me.txtdireccion.Size = New System.Drawing.Size(438, 23)
         Me.txtdireccion.TabIndex = 23
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(0, 96)
+        Me.Label9.Location = New System.Drawing.Point(0, 118)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(66, 13)
+        Me.Label9.Size = New System.Drawing.Size(72, 16)
         Me.Label9.TabIndex = 22
         Me.Label9.Text = "DIRECCION"
         '
         'btnAceptar
         '
-        Me.btnAceptar.Location = New System.Drawing.Point(6, 417)
+        Me.btnAceptar.Location = New System.Drawing.Point(7, 513)
+        Me.btnAceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAceptar.Name = "btnAceptar"
-        Me.btnAceptar.Size = New System.Drawing.Size(373, 32)
+        Me.btnAceptar.Size = New System.Drawing.Size(435, 39)
         Me.btnAceptar.TabIndex = 20
         Me.btnAceptar.Text = "Procesar Venta"
         Me.btnAceptar.UseVisualStyleBackColor = True
@@ -140,105 +146,111 @@ Partial Class frmPuntoVenta
         'nudtotal
         '
         Me.nudtotal.DecimalPlaces = 2
-        Me.nudtotal.Location = New System.Drawing.Point(92, 392)
+        Me.nudtotal.Location = New System.Drawing.Point(107, 482)
+        Me.nudtotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudtotal.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudtotal.Name = "nudtotal"
         Me.nudtotal.ReadOnly = True
-        Me.nudtotal.Size = New System.Drawing.Size(287, 20)
+        Me.nudtotal.Size = New System.Drawing.Size(335, 23)
         Me.nudtotal.TabIndex = 19
         Me.nudtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nuddescuento
         '
         Me.nuddescuento.DecimalPlaces = 2
-        Me.nuddescuento.Location = New System.Drawing.Point(92, 366)
+        Me.nuddescuento.Location = New System.Drawing.Point(107, 450)
+        Me.nuddescuento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nuddescuento.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nuddescuento.Name = "nuddescuento"
         Me.nuddescuento.ReadOnly = True
-        Me.nuddescuento.Size = New System.Drawing.Size(287, 20)
+        Me.nuddescuento.Size = New System.Drawing.Size(335, 23)
         Me.nuddescuento.TabIndex = 18
         Me.nuddescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nudimpuesto
         '
         Me.nudimpuesto.DecimalPlaces = 2
-        Me.nudimpuesto.Location = New System.Drawing.Point(92, 340)
+        Me.nudimpuesto.Location = New System.Drawing.Point(107, 418)
+        Me.nudimpuesto.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudimpuesto.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudimpuesto.Name = "nudimpuesto"
         Me.nudimpuesto.ReadOnly = True
-        Me.nudimpuesto.Size = New System.Drawing.Size(287, 20)
+        Me.nudimpuesto.Size = New System.Drawing.Size(335, 23)
         Me.nudimpuesto.TabIndex = 17
         Me.nudimpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nudsubtotal
         '
         Me.nudsubtotal.DecimalPlaces = 2
-        Me.nudsubtotal.Location = New System.Drawing.Point(92, 314)
+        Me.nudsubtotal.Location = New System.Drawing.Point(107, 386)
+        Me.nudsubtotal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudsubtotal.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudsubtotal.Name = "nudsubtotal"
         Me.nudsubtotal.ReadOnly = True
-        Me.nudsubtotal.Size = New System.Drawing.Size(287, 20)
+        Me.nudsubtotal.Size = New System.Drawing.Size(335, 23)
         Me.nudsubtotal.TabIndex = 16
         Me.nudsubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 394)
+        Me.Label8.Location = New System.Drawing.Point(3, 485)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(42, 13)
+        Me.Label8.Size = New System.Drawing.Size(47, 16)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "TOTAL"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(3, 342)
+        Me.Label7.Location = New System.Drawing.Point(3, 421)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(63, 13)
+        Me.Label7.Size = New System.Drawing.Size(69, 16)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "IMPUESTO"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 368)
+        Me.Label6.Location = New System.Drawing.Point(3, 453)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(74, 13)
+        Me.Label6.Size = New System.Drawing.Size(79, 16)
         Me.Label6.TabIndex = 13
         Me.Label6.Text = "DESCUENTO"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(3, 316)
+        Me.Label5.Location = New System.Drawing.Point(3, 389)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 13)
+        Me.Label5.Size = New System.Drawing.Size(70, 16)
         Me.Label5.TabIndex = 12
         Me.Label5.Text = "SUBTOTAL"
         '
         'btnconsultar
         '
-        Me.btnconsultar.Location = New System.Drawing.Point(312, 13)
+        Me.btnconsultar.Location = New System.Drawing.Point(364, 16)
+        Me.btnconsultar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnconsultar.Name = "btnconsultar"
-        Me.btnconsultar.Size = New System.Drawing.Size(67, 48)
+        Me.btnconsultar.Size = New System.Drawing.Size(78, 59)
         Me.btnconsultar.TabIndex = 11
         Me.btnconsultar.Text = "Consultar"
         Me.btnconsultar.UseVisualStyleBackColor = True
         '
         'txtcliente
         '
-        Me.txtcliente.Location = New System.Drawing.Point(6, 67)
+        Me.txtcliente.Location = New System.Drawing.Point(7, 82)
+        Me.txtcliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcliente.Name = "txtcliente"
-        Me.txtcliente.Size = New System.Drawing.Size(373, 20)
+        Me.txtcliente.Size = New System.Drawing.Size(434, 23)
         Me.txtcliente.TabIndex = 10
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 51)
+        Me.Label4.Location = New System.Drawing.Point(3, 63)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 13)
+        Me.Label4.Size = New System.Drawing.Size(56, 16)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "CLIENTE"
         '
@@ -247,10 +259,11 @@ Partial Class frmPuntoVenta
         Me.dgvDatos.AllowUserToAddRows = False
         Me.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvDatos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.nombreProducto, Me.precioProducto, Me.cantidadProducto, Me.totalVenta})
-        Me.dgvDatos.Location = New System.Drawing.Point(6, 151)
+        Me.dgvDatos.Location = New System.Drawing.Point(7, 186)
+        Me.dgvDatos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgvDatos.Size = New System.Drawing.Size(373, 151)
+        Me.dgvDatos.Size = New System.Drawing.Size(435, 186)
         Me.dgvDatos.TabIndex = 8
         '
         'id
@@ -285,25 +298,26 @@ Partial Class frmPuntoVenta
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 135)
+        Me.Label3.Location = New System.Drawing.Point(3, 166)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.Size = New System.Drawing.Size(73, 16)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "PRODUCTO"
         '
         'txtdocumento
         '
-        Me.txtdocumento.Location = New System.Drawing.Point(6, 28)
+        Me.txtdocumento.Location = New System.Drawing.Point(7, 34)
+        Me.txtdocumento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdocumento.Name = "txtdocumento"
-        Me.txtdocumento.Size = New System.Drawing.Size(300, 20)
+        Me.txtdocumento.Size = New System.Drawing.Size(349, 23)
         Me.txtdocumento.TabIndex = 6
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 12)
+        Me.Label2.Location = New System.Drawing.Point(3, 15)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 13)
+        Me.Label2.Size = New System.Drawing.Size(83, 16)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "DOCUMENTO"
         '
@@ -311,17 +325,18 @@ Partial Class frmPuntoVenta
         '
         Me.txtbusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtbusqueda.Location = New System.Drawing.Point(473, 98)
+        Me.txtbusqueda.Location = New System.Drawing.Point(552, 121)
+        Me.txtbusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbusqueda.Name = "txtbusqueda"
-        Me.txtbusqueda.Size = New System.Drawing.Size(121, 20)
+        Me.txtbusqueda.Size = New System.Drawing.Size(140, 23)
         Me.txtbusqueda.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(399, 101)
+        Me.Label1.Location = New System.Drawing.Point(465, 124)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(68, 13)
+        Me.Label1.Size = New System.Drawing.Size(73, 16)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "PRODUCTO"
         '
@@ -330,9 +345,10 @@ Partial Class frmPuntoVenta
         Me.rbprecio1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rbprecio1.AutoSize = True
         Me.rbprecio1.Checked = True
-        Me.rbprecio1.Location = New System.Drawing.Point(600, 99)
+        Me.rbprecio1.Location = New System.Drawing.Point(703, 122)
+        Me.rbprecio1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.rbprecio1.Name = "rbprecio1"
-        Me.rbprecio1.Size = New System.Drawing.Size(64, 17)
+        Me.rbprecio1.Size = New System.Drawing.Size(72, 20)
         Me.rbprecio1.TabIndex = 5
         Me.rbprecio1.TabStop = True
         Me.rbprecio1.Text = "Precio 1"
@@ -342,9 +358,10 @@ Partial Class frmPuntoVenta
         '
         Me.rbprecio2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rbprecio2.AutoSize = True
-        Me.rbprecio2.Location = New System.Drawing.Point(670, 99)
+        Me.rbprecio2.Location = New System.Drawing.Point(785, 122)
+        Me.rbprecio2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.rbprecio2.Name = "rbprecio2"
-        Me.rbprecio2.Size = New System.Drawing.Size(64, 17)
+        Me.rbprecio2.Size = New System.Drawing.Size(72, 20)
         Me.rbprecio2.TabIndex = 6
         Me.rbprecio2.TabStop = True
         Me.rbprecio2.Text = "Precio 2"
@@ -353,17 +370,17 @@ Partial Class frmPuntoVenta
         'lblNombreMesa
         '
         Me.lblNombreMesa.AutoSize = True
-        Me.lblNombreMesa.Location = New System.Drawing.Point(488, 12)
+        Me.lblNombreMesa.Location = New System.Drawing.Point(569, 15)
         Me.lblNombreMesa.Name = "lblNombreMesa"
-        Me.lblNombreMesa.Size = New System.Drawing.Size(10, 13)
+        Me.lblNombreMesa.Size = New System.Drawing.Size(13, 16)
         Me.lblNombreMesa.TabIndex = 7
         Me.lblNombreMesa.Text = "-"
         '
         'frmPuntoVenta
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(744, 484)
+        Me.ClientSize = New System.Drawing.Size(868, 596)
         Me.Controls.Add(Me.lblNombreMesa)
         Me.Controls.Add(Me.rbprecio2)
         Me.Controls.Add(Me.rbprecio1)
@@ -372,6 +389,9 @@ Partial Class frmPuntoVenta
         Me.Controls.Add(Me.pnventa)
         Me.Controls.Add(Me.pnproductos)
         Me.Controls.Add(Me.pncategoria)
+        Me.Font = New System.Drawing.Font("Tahoma", 9.75!)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmPuntoVenta"
         Me.Text = "frmPuntoVenta"
         Me.pnventa.ResumeLayout(False)

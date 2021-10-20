@@ -15,14 +15,18 @@ Public Class frmCajaChica
     End Sub
 
     Private Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Dim cd As New Transaccion_cajachica
-        Select Case id
-            Case 0
-                If cd.SP_cajachica(New CE_cajachica With {.Tipo = 1, .idusuarios = cbUsuarios.SelectedValue, .fecha = dtpfecha.Value, .fechaInicio = CDate(txtfechainicio.Text), .fechaFinal = CDate(txtfechafinal.Text), .montoinicio = nudmontoinicio.Value, .montofinal = nudmontofinal.Value, .comentario = txtcomentario.Text}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar")
-            Case Else
-                If cd.SP_cajachica(New CE_cajachica With {.Tipo = 2, .idcajadinero = id, .idusuarios = cbUsuarios.SelectedValue, .fecha = dtpfecha.Value, .fechaInicio = CDate(txtfechainicio.Text), .fechaFinal = CDate(txtfechafinal.Text), .montoinicio = nudmontoinicio.Value, .montofinal = nudmontofinal.Value, .comentario = txtcomentario.Text}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar")
-        End Select
-        Me.Close()
+        Try
+            Dim cd As New Transaccion_cajachica
+            Select Case id
+                Case 0
+                    If cd.SP_cajachica(New CE_cajachica With {.Tipo = 1, .idusuarios = cbUsuarios.SelectedValue, .fecha = dtpfecha.Value, .fechaInicio = CDate(txtfechainicio.Text), .fechaFinal = CDate(txtfechafinal.Text), .montoinicio = nudmontoinicio.Value, .montofinal = nudmontofinal.Value, .comentario = txtcomentario.Text}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar")
+                Case Else
+                    If cd.SP_cajachica(New CE_cajachica With {.Tipo = 2, .idcajadinero = id, .idusuarios = cbUsuarios.SelectedValue, .fecha = dtpfecha.Value, .fechaInicio = CDate(txtfechainicio.Text), .fechaFinal = CDate(txtfechafinal.Text), .montoinicio = nudmontoinicio.Value, .montofinal = nudmontofinal.Value, .comentario = txtcomentario.Text}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar")
+            End Select
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub frmCategoria_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

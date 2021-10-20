@@ -10,12 +10,6 @@ Public Class frmCanjeComprobante
     Private detalle As New List(Of CE_detalleventas)
     Public form_apertura As Integer
 
-    'Public Sub cargar_datos(p As CE_personas, ByVal c As CE_ventas, ByVal d As List(Of CE_detalleventas))
-    '    persona = p
-    '    comprobantes = c
-    '    detalle = d
-    'End Sub
-
     Sub New(_id As Integer, _nombremesa As String)
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -25,6 +19,7 @@ Public Class frmCanjeComprobante
     End Sub
 
     Private Sub Impresiones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        style_grilla(dgvDatos)
         CargarDatos()
         cargarcombo()
         lblmesa.Text = nombremesa
@@ -48,17 +43,12 @@ Public Class frmCanjeComprobante
         dr("nombre") = "FACTURA"
         dt.Rows.Add(dr)
 
-        cbTipoComprobante.DataSource = dt
-        cbTipoComprobante.ValueMember = "id"
-        cbTipoComprobante.DisplayMember = "nombre"
-
+        Cargar_Combobox_General(cbTipoComprobante, dt, "nombre", "id")
         cbTipoComprobante.SelectedIndex = 0
-
 
         Dim dtx As New DataTable
         dtx.Columns.Add("id")
         dtx.Columns.Add("nombre")
-
         Dim drx As DataRow
 
         drx = dtx.NewRow()
@@ -71,10 +61,7 @@ Public Class frmCanjeComprobante
         drx("nombre") = "PAGO QR"
         dtx.Rows.Add(drx)
 
-        cbpago.DataSource = dtx
-        cbpago.ValueMember = "id"
-        cbpago.DisplayMember = "nombre"
-
+        Cargar_Combobox_General(cbpago, dtx, "nombre", "id")
         cbpago.SelectedIndex = 0
     End Sub
 
@@ -100,10 +87,7 @@ Public Class frmCanjeComprobante
             Else
                 Exit Sub
             End If
-
-            cbSerie.DataSource = dt
-            cbSerie.ValueMember = "id"
-            cbSerie.DisplayMember = "nombre"
+            Cargar_Combobox_General(cbSerie, dt, "nombre", "id")
             cbSerie.SelectedIndex = 0
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -318,5 +302,22 @@ Public Class frmCanjeComprobante
         frm.Show()
     End Sub
 
+    Private Sub DgvCajas_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dgvDatos.RowPostPaint
+        Try
+            Dim NumeroFila As String = (e.RowIndex + 1).ToString 'Obtiene el número de filas
+            While NumeroFila.Length < sender.RowCount.ToString.Length
+                NumeroFila = "0" & NumeroFila 'Agrega un cero a los que tienen un dígito menos
+            End While
+            Dim size As SizeF = e.Graphics.MeasureString(NumeroFila, Me.Font)
+            If sender.RowHeadersWidth < CInt(size.Width + 20) Then
+                sender.RowHeadersWidth = CInt(size.Width + 20)
+            End If
+            Dim Obj As Brush = SystemBrushes.ControlText
+            'Dibuja el número dentro del controltext
+            e.Graphics.DrawString(NumeroFila, Me.Font, Obj, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2))
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        End Try
+    End Sub
 
 End Class

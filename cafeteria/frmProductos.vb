@@ -38,7 +38,7 @@ Public Class frmProductos
             dt = cd.DT_leer(New CE_dgv With {.Tipo = 9, .Codigo_1 = id})
             cbcategoria.SelectedValue = dt.Rows(0).Item("idcategoria")
             cbunidadmedida.SelectedValue = dt.Rows(0).Item("idunidadmedida")
-            txtnombre.Text = dt.Rows(0).Item("idunidadmedida")
+            txtnombre.Text = dt.Rows(0).Item("nombre")
             nudprecio1.Value = dt.Rows(0).Item("precio1")
             nudprecio2.Value = dt.Rows(0).Item("precio2")
             pbimagen.Image = Bytes_Imagen(dt.Rows(0).Item("imagen"))

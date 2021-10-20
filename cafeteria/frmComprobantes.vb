@@ -5,6 +5,7 @@ Public Class frmComprobantes
     Dim dtcomprobantes As New DataTable
 
     Private Sub frmCategoriasVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        style_grilla(dgvDatos)
         cargarCombobox()
         CargarDatos()
     End Sub
@@ -215,10 +216,7 @@ Public Class frmComprobantes
         dr("nombre") = "Pedidos"
         dt.Rows.Add(dr)
 
-        cbTipo.DataSource = dt
-        cbTipo.ValueMember = "id"
-        cbTipo.DisplayMember = "nombre"
-
+        Cargar_Combobox_General(cbTipo, dt, "nombre", "id")
         cbTipo.SelectedIndex = 0
     End Sub
 
@@ -237,5 +235,24 @@ Public Class frmComprobantes
             ' MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub DgvCajas_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dgvDatos.RowPostPaint
+        Try
+            Dim NumeroFila As String = (e.RowIndex + 1).ToString 'Obtiene el número de filas
+            While NumeroFila.Length < sender.RowCount.ToString.Length
+                NumeroFila = "0" & NumeroFila 'Agrega un cero a los que tienen un dígito menos
+            End While
+            Dim size As SizeF = e.Graphics.MeasureString(NumeroFila, Me.Font)
+            If sender.RowHeadersWidth < CInt(size.Width + 20) Then
+                sender.RowHeadersWidth = CInt(size.Width + 20)
+            End If
+            Dim Obj As Brush = SystemBrushes.ControlText
+            'Dibuja el número dentro del controltext
+            e.Graphics.DrawString(NumeroFila, Me.Font, Obj, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2))
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        End Try
+    End Sub
+
 
 End Class
