@@ -41,7 +41,7 @@ Partial Class FrmImpresiones
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.Indigo
-        Me.Label4.Location = New System.Drawing.Point(406, 9)
+        Me.Label4.Location = New System.Drawing.Point(338, 9)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 100
@@ -56,7 +56,7 @@ Partial Class FrmImpresiones
         Me.CB_ZOOM.ForeColor = System.Drawing.SystemColors.MenuText
         Me.CB_ZOOM.FormattingEnabled = True
         Me.CB_ZOOM.Items.AddRange(New Object() {"50%", "75%", "100%", "150%", "200%", "300%", "400%", "500%"})
-        Me.CB_ZOOM.Location = New System.Drawing.Point(406, 28)
+        Me.CB_ZOOM.Location = New System.Drawing.Point(338, 28)
         Me.CB_ZOOM.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CB_ZOOM.Name = "CB_ZOOM"
         Me.CB_ZOOM.Size = New System.Drawing.Size(87, 22)
@@ -69,7 +69,7 @@ Partial Class FrmImpresiones
         Me.PPC_MUESTRA.Location = New System.Drawing.Point(14, 14)
         Me.PPC_MUESTRA.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PPC_MUESTRA.Name = "PPC_MUESTRA"
-        Me.PPC_MUESTRA.Size = New System.Drawing.Size(386, 474)
+        Me.PPC_MUESTRA.Size = New System.Drawing.Size(318, 474)
         Me.PPC_MUESTRA.TabIndex = 97
         Me.PPC_MUESTRA.Zoom = 0.43199315654405473R
         '
@@ -80,7 +80,7 @@ Partial Class FrmImpresiones
         '
         Me.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnImprimir.Image = Global.cafeteria.My.Resources.Resources._39263_print_printer_icon
-        Me.btnImprimir.Location = New System.Drawing.Point(406, 418)
+        Me.btnImprimir.Location = New System.Drawing.Point(338, 418)
         Me.btnImprimir.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnImprimir.Name = "btnImprimir"
         Me.btnImprimir.Size = New System.Drawing.Size(87, 71)
@@ -108,7 +108,7 @@ Partial Class FrmImpresiones
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(504, 502)
+        Me.ClientSize = New System.Drawing.Size(428, 502)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CB_ZOOM)
         Me.Controls.Add(Me.btnImprimir)
@@ -121,6 +121,7 @@ Partial Class FrmImpresiones
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmImpresiones"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "IMPRIMIR"
         CType(Me.QrCodeImgControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

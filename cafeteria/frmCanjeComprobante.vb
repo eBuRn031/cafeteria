@@ -251,19 +251,19 @@ Public Class frmCanjeComprobante
                 Dim ce As New CE_detalleventas
                 ce.Tipo = 1
                 ce.ventas_idventas = 1
-                ce.producto_idproducto = dt.Rows(0).Item("producto_idproducto")
-                ce.cantidad = dt.Rows(0).Item("cantidad")
-                ce.precio = dt.Rows(0).Item("precio")
-                ce.total = dt.Rows(0).Item("total")
+                ce.producto_idproducto = dt.Rows(i).Item("producto_idproducto")
+                ce.cantidad = dt.Rows(i).Item("cantidad")
+                ce.precio = dt.Rows(i).Item("precio")
+                ce.total = dt.Rows(i).Item("total")
                 detalle.Add(ce)
 
                 Dim cex As New CE_productostock
                 cex.Tipo = 1
-                cex.idproducto = dt.Rows(0).Item("producto_idproducto")
+                cex.idproducto = dt.Rows(i).Item("producto_idproducto")
                 cex.idusuarios = _idusuario
                 cex.fechahora = Now()
                 cex.entrada = 0
-                cex.salida = dt.Rows(0).Item("cantidad")
+                cex.salida = dt.Rows(i).Item("cantidad")
                 cex.total = 0
                 cex.comentario = "Venta mesa " & nombremesa
                 listaCe_ProductosStock.Add(cex)

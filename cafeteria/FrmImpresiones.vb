@@ -152,7 +152,7 @@ Public Class FrmImpresiones
             e.Graphics.DrawString("FACTURA ELECTRÓNICA", fontTituloColumna, Brushes.Black, Parrafo, FormatoCentro)
         End If
         Parrafo = New Rectangle(0, 165, 255, 15)
-        e.Graphics.DrawString("SERIE: " & comprobantes.serie & "     NUMERO: " & comprobantes.numero, fontCuerpo, Brushes.Black, Parrafo, FormatoCentro)
+        e.Graphics.DrawString("SERIE: " & comprobantes.serie & "     NUMERO: " & completando_ceros(comprobantes.numero), fontCuerpo, Brushes.Black, Parrafo, FormatoCentro)
 
 
         Parrafo = New Rectangle(0, 185, 255, 12)
@@ -470,7 +470,7 @@ Public Class FrmImpresiones
         Parrafo = New Rectangle(0, 60, 255, 15)
         e.Graphics.DrawString("PEDIDO " & nombreMesa, fontTituloColumna, Brushes.Black, Parrafo, FormatoCentro)
         Parrafo = New Rectangle(0, 75, 255, 15)
-        e.Graphics.DrawString("NUMERO: " & pedido.numero, fontCuerpo, Brushes.Black, Parrafo, FormatoCentro)
+        e.Graphics.DrawString("NUMERO: " & completando_ceros(pedido.numero), fontCuerpo, Brushes.Black, Parrafo, FormatoCentro)
 
 
         Parrafo = New Rectangle(0, 95, 255, 12)

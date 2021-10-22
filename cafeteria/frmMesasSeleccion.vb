@@ -83,6 +83,36 @@ Public Class frmMesasSeleccion
 
     Private Sub frmMesasSeleccion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CreaBotones()
+        LblUsuario.Text = _nombreusuario
+        If _tipoUsuario = "A" Then lbltipo.Text = "Administrador" Else lbltipo.Text = "Vendedor"
+    End Sub
+
+    Private Sub btncomprobantes_Click(sender As Object, e As EventArgs) Handles btncomprobantes.Click
+        Dim f As New frmComprobantes
+        f.ShowDialog()
+    End Sub
+
+    Private Sub btnclientes_Click(sender As Object, e As EventArgs) Handles btnclientes.Click
+        Dim f As New frmPersonasVista
+        f.ShowDialog()
+    End Sub
+
+    Private Sub btnturno_Click(sender As Object, e As EventArgs) Handles btnturno.Click
+        MsgBox("Seguimos trabajando ....x1")
+    End Sub
+
+    Private Sub btnreporte_Click(sender As Object, e As EventArgs) Handles btnreporte.Click
+        MsgBox("Seguimos trabajando .... x2")
+    End Sub
+
+    Private Sub SsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SsToolStripMenuItem.Click
+        Dim f As New frmLogin
+        f.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
+        Application.Exit()
     End Sub
 
 End Class

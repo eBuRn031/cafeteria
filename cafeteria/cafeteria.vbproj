@@ -401,6 +401,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1562703_coffee_creative_good idea_icon.ico" />
+    <None Include="Resources\2931168_bin_delete_remove_trash_garbage_icon.png" />
+    <None Include="Resources\1622836_checkmark_done_explore_find_magnifier_icon %281%29.png" />
+    <None Include="Resources\1622836_checkmark_done_explore_find_magnifier_icon.png" />
+    <None Include="Resources\48796_search_icon.png" />
+    <None Include="Resources\2824441_clock_stopwatch_time_timer_icon.png" />
+    <None Include="Resources\379342_increase_money_icon.png" />
+    <None Include="Resources\4714992_avatar_man_people_person_profile_icon.png" />
     <None Include="Resources\usericon.png" />
     <None Include="Resources\5027832_document_file_page_paper_icon.png" />
     <None Include="Resources\6071845_folder_progress_task_update_update task progress_icon.png" />

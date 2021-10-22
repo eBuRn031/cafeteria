@@ -35,6 +35,7 @@ Public Class frmPuntoVenta
         txtdocumento.AutoCompleteSource = AutoCompleteSource.CustomSource
         txtdocumento.AutoCompleteCustomSource = ruc_coleccion
 
+        style_grilla(dgvDatos)
         CreaBotonesCategoria()
         busquedaproducto("todo")
         lblNombreMesa.Text = _nombre_mesa
@@ -74,6 +75,7 @@ Public Class frmPuntoVenta
             .Location = New System.Drawing.Point(xx, yy) ' Asignas la posición del objeto
             .Size = New System.Drawing.Size(tamaniobotonx, tamaniobotony) ' Asignas el tamaño del objeto
             .TextAlign = ContentAlignment.MiddleCenter
+            .FlatStyle = FlatStyle.Popup
         End With
         AddHandler btn.Click, AddressOf Button_Click
         pncategoria.Controls.Add(btn)  ' Agregas el botón al formulario.
@@ -88,6 +90,7 @@ Public Class frmPuntoVenta
                     .Location = New System.Drawing.Point(xx, yy) ' Asignas la posición del objeto
                     .Size = New System.Drawing.Size(tamaniobotonx, tamaniobotony) ' Asignas el tamaño del objeto
                     .TextAlign = ContentAlignment.MiddleCenter
+                    .FlatStyle = FlatStyle.Popup
                 End With
 
                 AddHandler btn.Click, AddressOf Button_Click   ' Asocias el evento al método Button_Click
@@ -349,6 +352,11 @@ Public Class frmPuntoVenta
                 nuddescuento.Value = 0.00
                 nudimpuesto.Value = 0.00
                 nudtotal.Value = suma
+            Else
+                nudsubtotal.Value = 0.00
+                nuddescuento.Value = 0.00
+                nudimpuesto.Value = 0.00
+                nudtotal.Value = 0.00
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -496,6 +504,60 @@ Public Class frmPuntoVenta
             f.cargar_datosPedido(mesa, ce_p, ce_v, ce_d)
             f.PPC_MUESTRA.Document = f.PD_OrdenVenta
             f.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DgvCajas_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dgvDatos.RowPostPaint
+        Try
+            Dim NumeroFila As String = (e.RowIndex + 1).ToString 'Obtiene el número de filas
+            While NumeroFila.Length < sender.RowCount.ToString.Length
+                NumeroFila = "0" & NumeroFila 'Agrega un cero a los que tienen un dígito menos
+            End While
+            Dim size As SizeF = e.Graphics.MeasureString(NumeroFila, Me.Font)
+            If sender.RowHeadersWidth < CInt(size.Width + 20) Then
+                sender.RowHeadersWidth = CInt(size.Width + 20)
+            End If
+            Dim Obj As Brush = SystemBrushes.ControlText
+            'Dibuja el número dentro del controltext
+            e.Graphics.DrawString(NumeroFila, Me.Font, Obj, e.RowBounds.Location.X + 15, e.RowBounds.Location.Y + ((e.RowBounds.Height - size.Height) / 2))
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Private Sub dgvDatos_CellMouseEnter(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseEnter
+        If e.RowIndex >= 0 Then
+            sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.Aqua
+        End If
+    End Sub
+
+    Private Sub dgvDatos_CellMouseLeave(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvDatos.CellMouseLeave
+        If e.RowIndex >= 0 Then
+            Dim fila As Integer = e.RowIndex + 1
+            If fila Mod 2 = 0 Then
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = colorAlternado
+            Else
+                sender.Rows(e.RowIndex).DefaultCellStyle.BackColor = Color.White
+            End If
+        End If
+    End Sub
+
+    Private Sub btnLimpiarVenta_Click(sender As Object, e As EventArgs) Handles btnLimpiarVenta.Click
+        Try
+            Dim i As Integer
+
+            If dgvDatos.SelectedCells.Count > 0 Then
+                i = dgvDatos.CurrentCell.RowIndex
+                If MsgBox("¿Desea eliminar el producto " & dgvDatos.Rows(i).Cells("nombreProducto").Value & " de la lista?", MsgBoxStyle.OkCancel, "Advertencia") = MsgBoxResult.Ok Then
+                    dgvDatos.Rows.RemoveAt(i)
+                    cargar_calculos()
+                    sumatorias()
+                End If
+            Else
+                MessageBox.Show("Selecciona una fila de la tabla")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

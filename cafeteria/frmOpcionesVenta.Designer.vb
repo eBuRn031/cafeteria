@@ -69,6 +69,7 @@ Partial Class frmOpcionesVenta
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmOpcionesVenta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "OPCIONES DE VENTA"
         Me.ResumeLayout(False)
 

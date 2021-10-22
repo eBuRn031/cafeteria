@@ -34,6 +34,7 @@ Partial Class frmCajaChicaVista
         '
         Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBusqueda.Location = New System.Drawing.Point(61, 29)
         Me.txtBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBusqueda.Name = "txtBusqueda"

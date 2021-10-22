@@ -160,6 +160,7 @@ Partial Class frmCajaChica
         'nudmontoinicio
         '
         Me.nudmontoinicio.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nudmontoinicio.DecimalPlaces = 2
         Me.nudmontoinicio.Location = New System.Drawing.Point(236, 127)
         Me.nudmontoinicio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudmontoinicio.Name = "nudmontoinicio"
@@ -170,6 +171,7 @@ Partial Class frmCajaChica
         'nudmontofinal
         '
         Me.nudmontofinal.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.nudmontofinal.DecimalPlaces = 2
         Me.nudmontofinal.Location = New System.Drawing.Point(236, 173)
         Me.nudmontofinal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.nudmontofinal.Name = "nudmontofinal"
