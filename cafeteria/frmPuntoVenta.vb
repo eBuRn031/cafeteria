@@ -129,7 +129,7 @@ Public Class frmPuntoVenta
         tamaniopanelx = pnproductos.Width
         tamaniopanely = pnproductos.Height
 
-
+        Dim MyFont As New Font(Label1.Font.FontFamily, 7, FontStyle.Regular)
         Dim limite As Integer = CInt(tamaniopanelx / tamaniobotonx) - 1
 
         If dt.Rows.Count > Nothing Then
@@ -145,8 +145,9 @@ Public Class frmPuntoVenta
                     .Location = New System.Drawing.Point(xx, yy) ' Asignas la posición del objeto
                     .Size = New System.Drawing.Size(tamaniobotonx, tamaniobotony) ' Asignas el tamaño del objeto
                     .TextAlign = ContentAlignment.BottomCenter
+                    .Font = MyFont
                     .BackgroundImageLayout = ImageLayout.Stretch
-                    .Image = Bytes_Imagen(dt.Rows(i).Item("imagen"))
+                    .BackgroundImage = Bytes_Imagen(dt.Rows(i).Item("imagen"))
                 End With
 
                 AddHandler btn.Click, AddressOf Button_Clickprod   ' Asocias el evento al método Button_Click
@@ -376,10 +377,11 @@ Public Class frmPuntoVenta
             imprimirVenta()
         End If
     End Sub
+
     Sub validar_persona()
         If String.IsNullOrEmpty(txtdocumento.Text.Replace(" ", String.Empty)) And String.IsNullOrEmpty(txtcliente.Text.Replace(" ", String.Empty)) Then
             _id_personas = 2 ' persona vacia en la bd, en caso de no cumplir esta condicion se creará un nuevo registro para el usuario
-        ElseIf String.IsNullOrEmpty(txtdocumento.Text.Replace(" ", String.Empty)) = False And String.IsNullOrEmpty(txtcliente.Text.Replace(" ", String.Empty)) = False Then
+        ElseIf String.IsNullOrEmpty(txtdocumento.Text.Replace(" ", String.Empty)) And String.IsNullOrEmpty(txtcliente.Text.Replace(" ", String.Empty)) = False Then
             _id_personas = 0
         End If
     End Sub

@@ -50,7 +50,7 @@ Partial Class frmCajaChica
         Me.txtfechafinal.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtfechafinal.Location = New System.Drawing.Point(17, 173)
         Me.txtfechafinal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtfechafinal.MaxLength = 20
+        Me.txtfechafinal.MaxLength = 19
         Me.txtfechafinal.Name = "txtfechafinal"
         Me.txtfechafinal.Size = New System.Drawing.Size(213, 23)
         Me.txtfechafinal.TabIndex = 5
@@ -73,7 +73,7 @@ Partial Class frmCajaChica
         Me.txtfechainicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtfechainicio.Location = New System.Drawing.Point(17, 126)
         Me.txtfechainicio.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtfechainicio.MaxLength = 20
+        Me.txtfechainicio.MaxLength = 19
         Me.txtfechainicio.Name = "txtfechainicio"
         Me.txtfechainicio.Size = New System.Drawing.Size(213, 23)
         Me.txtfechainicio.TabIndex = 3
@@ -197,7 +197,7 @@ Partial Class frmCajaChica
         Me.txtcomentario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcomentario.Location = New System.Drawing.Point(17, 220)
         Me.txtcomentario.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtcomentario.MaxLength = 20
+        Me.txtcomentario.MaxLength = 100
         Me.txtcomentario.Multiline = True
         Me.txtcomentario.Name = "txtcomentario"
         Me.txtcomentario.Size = New System.Drawing.Size(275, 65)

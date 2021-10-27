@@ -37,6 +37,7 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_imagen", dts.imagen) ' =  --- VALOR PARA imagen | 
                 cmd.Parameters.AddWithValue("_fecreg", dts.fecreg) ' =  --- VALOR PARA fecreg | 
                 cmd.Parameters.AddWithValue("_fecmod", dts.fecmod) ' =  --- VALOR PARA fecmod | 
+                cmd.Parameters.AddWithValue("_descripcion", dts.descripcion) ' =  --- VALOR PARA fecmod | 
                 If cmd.ExecuteNonQuery Then
                     Return True
                 Else
@@ -68,9 +69,8 @@ Namespace ClaseCodeDOM
                 cmd.Parameters.AddWithValue("_imagen", dts.imagen) ' =  --- VALOR PARA imagen | 
                 cmd.Parameters.AddWithValue("_fecreg", dts.fecreg) ' =  --- VALOR PARA fecreg | 
                 cmd.Parameters.AddWithValue("_fecmod", dts.fecmod) ' =  --- VALOR PARA fecmod | 
+                cmd.Parameters.AddWithValue("_descripcion", dts.descripcion) ' =  --- VALOR PARA fecmod | 
                 Dim dataReader = cmd.ExecuteReader()
-
-
                 dt.Load(dataReader) ' =  --- INSTRUCCIONES ---
                 dataReader.Close() ' =  cerrando datareader
                 Return dt

@@ -75,6 +75,7 @@ Public Class frmProductosVista
             dgv.Columns.Add("precio1", "PRECIO 1")
             dgv.Columns.Add("precio2", "PRECIO 2")
             dgv.Columns("id").Visible = False
+            dgv.Columns("nombreproducto").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

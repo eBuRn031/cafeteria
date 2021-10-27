@@ -18,9 +18,9 @@ Public Class frmProductos
         Dim cd As New Transaccion_producto
         Select Case id
             Case 0
-                If cd.SP_producto(New CE_producto With {.Tipo = 1, .idcategoria = cbcategoria.SelectedValue, .idunidadmedida = cbunidadmedida.SelectedValue, .nombre = txtnombre.Text, .precio1 = nudprecio1.Value, .precio2 = nudprecio2.Value, .idusuarios = _idusuario, .imagen = Imagen_Bytes(pbimagen.Image), .fecreg = Now(), .fecmod = Now()}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar")
+                If cd.SP_producto(New CE_producto With {.Tipo = 1, .idcategoria = cbcategoria.SelectedValue, .idunidadmedida = cbunidadmedida.SelectedValue, .nombre = txtnombre.Text, .precio1 = nudprecio1.Value, .precio2 = nudprecio2.Value, .idusuarios = _idusuario, .imagen = Imagen_Bytes(pbimagen.Image), .fecreg = Now(), .fecmod = Now(), .descripcion = txtdescripcion.Text}) Then MsgBox("Se Agrego Correctamente") Else MsgBox("Error al Agregar")
             Case Else
-                If cd.SP_producto(New CE_producto With {.Tipo = 2, .idproducto = id, .idcategoria = cbcategoria.SelectedValue, .idunidadmedida = cbunidadmedida.SelectedValue, .nombre = txtnombre.Text, .precio1 = nudprecio1.Value, .precio2 = nudprecio2.Value, .idusuarios = _idusuario, .imagen = Imagen_Bytes(pbimagen.Image), .fecreg = Now(), .fecmod = Now()}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar")
+                If cd.SP_producto(New CE_producto With {.Tipo = 2, .idproducto = id, .idcategoria = cbcategoria.SelectedValue, .idunidadmedida = cbunidadmedida.SelectedValue, .nombre = txtnombre.Text, .precio1 = nudprecio1.Value, .precio2 = nudprecio2.Value, .idusuarios = _idusuario, .imagen = Imagen_Bytes(pbimagen.Image), .fecreg = Now(), .fecmod = Now(), .descripcion = txtdescripcion.Text}) Then MsgBox("Se Actualizó Correctamente") Else MsgBox("Error al Actualizar")
         End Select
         Me.Close()
     End Sub
@@ -42,6 +42,7 @@ Public Class frmProductos
             nudprecio1.Value = dt.Rows(0).Item("precio1")
             nudprecio2.Value = dt.Rows(0).Item("precio2")
             pbimagen.Image = Bytes_Imagen(dt.Rows(0).Item("imagen"))
+            txtdescripcion.Text = dt.Rows(0).Item("descripcion")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

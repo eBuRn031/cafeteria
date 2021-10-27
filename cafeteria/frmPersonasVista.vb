@@ -35,31 +35,32 @@ Public Class frmPersonasVista
             AgregarColumnasDGV(dgv)
             If dt.Rows.Count > 0 Then
                 For i = 0 To dt.Rows.Count - 1
-                    dgv.Rows.Add(dt.Rows(i).Item("idpersonas"), dt.Rows(i).Item("dni"), dt.Rows(i).Item("nombre"), dt.Rows(i).Item("apellidos"), dt.Rows(i).Item("celular"))
+                    dgv.Rows.Add(dt.Rows(i).Item("idpersonas"), dt.Rows(i).Item("dni"), dt.Rows(i).Item("nombre"), dt.Rows(i).Item("celular"))
                 Next
             End If
             Dim colEditar As New DataGridViewImageColumn()
-            Dim colEliminar As New DataGridViewImageColumn()
-            Dim colUsuario As New DataGridViewImageColumn()
+
 
             colEditar.Name = "colEditar"
             colEditar.HeaderText = "EDITAR"
             colEditar.Image = My.Resources.editicon
             colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom
-
-            colEliminar.Name = "colEliminar"
-            colEliminar.HeaderText = "ELIMINAR"
-            colEliminar.Image = My.Resources.deleteicon
-            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
-
-            colUsuario.Name = "colUsuario"
-            colUsuario.HeaderText = "USUARIO"
-            colUsuario.Image = My.Resources.usericon
-            colUsuario.ImageLayout = DataGridViewImageCellLayout.Zoom
-
             dgv.Columns.Add(colEditar)
-            dgv.Columns.Add(colEliminar)
-            dgv.Columns.Add(colUsuario)
+
+            If _tipoUsuario = "A" Then
+                Dim colEliminar As New DataGridViewImageColumn()
+                colEliminar.Name = "colEliminar"
+                colEliminar.HeaderText = "ELIMINAR"
+                colEliminar.Image = My.Resources.deleteicon
+                colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
+                dgv.Columns.Add(colEliminar)
+                Dim colUsuario As New DataGridViewImageColumn()
+                colUsuario.Name = "colUsuario"
+                colUsuario.HeaderText = "USUARIO"
+                colUsuario.Image = My.Resources.usericon
+                colUsuario.ImageLayout = DataGridViewImageCellLayout.Zoom
+                dgv.Columns.Add(colUsuario)
+            End If
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -73,9 +74,9 @@ Public Class frmPersonasVista
             dgv.Columns.Add("id", "id")
             dgv.Columns.Add("dni", "DNI")
             dgv.Columns.Add("nombre", "NOMBRE")
-            dgv.Columns.Add("apellidos", "APELLIDO")
             dgv.Columns.Add("celular", "CELULAR")
             dgv.Columns("id").Visible = False
+            dgv.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

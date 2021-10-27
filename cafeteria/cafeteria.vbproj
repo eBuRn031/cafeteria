@@ -401,6 +401,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1562703_coffee_creative_good idea_icon.ico" />
+    <None Include="Resources\mesallena1.png" />
     <None Include="Resources\2931168_bin_delete_remove_trash_garbage_icon.png" />
     <None Include="Resources\1622836_checkmark_done_explore_find_magnifier_icon %281%29.png" />
     <None Include="Resources\1622836_checkmark_done_explore_find_magnifier_icon.png" />

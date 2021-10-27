@@ -190,7 +190,7 @@ Public Class frmComprobantes
         dtNew = dtcomprobantes.Clone()
 
         ' realizamos la consulta con select
-        rows = dtcomprobantes.Select("SerieNumero like '%" & sender.Text & "%' Or cliente Like '%" & sender.Text & "%'")
+        rows = dtcomprobantes.Select("cliente like '%" & sender.Text & "%'")
 
         ' recorremos la consulta dada y agregamos sus valores al nuevo dt creado(dtNew)
         For Each dr As DataRow In rows

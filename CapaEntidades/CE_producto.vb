@@ -44,16 +44,18 @@ Namespace ClaseCodeDOM
 
         '
         Public  Property fecreg As Date
-        
+
         '
-        Public  Property fecmod As Date
-        
+        Public Property fecmod As Date
+
+        Public Property descripcion As String
+
         Public Sub New()
             
         End Sub
 
         '''asdas
-        Public Sub New(ByVal _Tipo As Integer, ByVal _idproducto As Integer, ByVal _idunidadmedida As String, ByVal _idcategoria As Integer, ByVal _idusuarios As Integer, ByVal _nombre As String, ByVal _precio1 As Decimal, ByVal _precio2 As Decimal, ByVal _imagen As Byte(), ByVal _fecreg As Date, ByVal _fecmod As Date)
+        Public Sub New(ByVal _Tipo As Integer, ByVal _idproducto As Integer, ByVal _idunidadmedida As String, ByVal _idcategoria As Integer, ByVal _idusuarios As Integer, ByVal _nombre As String, ByVal _precio1 As Decimal, ByVal _precio2 As Decimal, ByVal _imagen As Byte(), ByVal _fecreg As Date, ByVal _fecmod As Date, ByVal _descripcion As String)
 
             Tipo = _Tipo
             idproducto = _idproducto
@@ -66,6 +68,7 @@ Namespace ClaseCodeDOM
             imagen = _imagen
             fecreg = _fecreg
             fecmod = _fecmod
+            descripcion = _descripcion
         End Sub
     End Class
 End Namespace

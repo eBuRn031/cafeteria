@@ -50,11 +50,10 @@ Public Class frmMesasSeleccion
                     .Size = New System.Drawing.Size(tamaniobotonx, tamaniobotony) ' Asignas el tamaño del objeto
                     .TextAlign = ContentAlignment.BottomCenter
                     If dtNew.Rows.Count > 0 Then
-                        .Image = My.Resources.mesallena
+                        .Image = My.Resources.mesallena1
                     Else
                         .Image = My.Resources.mesavacia
                     End If
-
                 End With
 
                 AddHandler btn.Click, AddressOf Button_Click   ' Asocias el evento al método Button_Click

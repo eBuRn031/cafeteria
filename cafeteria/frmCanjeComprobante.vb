@@ -42,7 +42,6 @@ Public Class frmCanjeComprobante
         dr("id") = "01"
         dr("nombre") = "FACTURA"
         dt.Rows.Add(dr)
-
         Cargar_Combobox_General(cbTipoComprobante, dt, "nombre", "id")
         cbTipoComprobante.SelectedIndex = 0
 
@@ -60,9 +59,9 @@ Public Class frmCanjeComprobante
         drx("id") = "Q"
         drx("nombre") = "PAGO QR"
         dtx.Rows.Add(drx)
-
         Cargar_Combobox_General(cbpago, dtx, "nombre", "id")
         cbpago.SelectedIndex = 0
+
     End Sub
 
     Sub cargarSerie(_idtipocomprobante As String)
@@ -291,7 +290,7 @@ Public Class frmCanjeComprobante
         End Try
     End Sub
 
-    Private Sub cbTipoComprobante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTipoComprobante.SelectedIndexChanged
+    Private Sub cbTipoComprobante_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbTipoComprobante.SelectedValueChanged
         Try
             cargarSerie(cbTipoComprobante.SelectedValue)
         Catch ex As Exception

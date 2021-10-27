@@ -37,10 +37,11 @@ Partial Class frmComprobantes
         '
         Me.txtBusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBusqueda.Location = New System.Drawing.Point(12, 79)
         Me.txtBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBusqueda.Name = "txtBusqueda"
-        Me.txtBusqueda.Size = New System.Drawing.Size(589, 23)
+        Me.txtBusqueda.Size = New System.Drawing.Size(665, 23)
         Me.txtBusqueda.TabIndex = 3
         '
         'dgvDatos
@@ -51,7 +52,7 @@ Partial Class frmComprobantes
         Me.dgvDatos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgvDatos.Size = New System.Drawing.Size(589, 194)
+        Me.dgvDatos.Size = New System.Drawing.Size(665, 194)
         Me.dgvDatos.TabIndex = 4
         '
         'cbTipo
@@ -82,7 +83,7 @@ Partial Class frmComprobantes
         Me.dtpFecha.Location = New System.Drawing.Point(238, 32)
         Me.dtpFecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(363, 23)
+        Me.dtpFecha.Size = New System.Drawing.Size(439, 23)
         Me.dtpFecha.TabIndex = 2
         '
         'Label2
@@ -112,7 +113,7 @@ Partial Class frmComprobantes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(609, 312)
+        Me.ClientSize = New System.Drawing.Size(685, 312)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtpFecha)

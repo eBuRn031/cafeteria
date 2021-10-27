@@ -75,7 +75,7 @@ Partial Class frmPuntoVenta
         Me.pncategoria.Location = New System.Drawing.Point(469, 46)
         Me.pncategoria.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pncategoria.Name = "pncategoria"
-        Me.pncategoria.Size = New System.Drawing.Size(385, 68)
+        Me.pncategoria.Size = New System.Drawing.Size(423, 68)
         Me.pncategoria.TabIndex = 0
         '
         'pnproductos
@@ -89,7 +89,7 @@ Partial Class frmPuntoVenta
         Me.pnproductos.Location = New System.Drawing.Point(467, 153)
         Me.pnproductos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnproductos.Name = "pnproductos"
-        Me.pnproductos.Size = New System.Drawing.Size(387, 328)
+        Me.pnproductos.Size = New System.Drawing.Size(425, 328)
         Me.pnproductos.TabIndex = 1
         '
         'pnventa
@@ -367,7 +367,7 @@ Partial Class frmPuntoVenta
         Me.txtbusqueda.Location = New System.Drawing.Point(539, 121)
         Me.txtbusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbusqueda.Name = "txtbusqueda"
-        Me.txtbusqueda.Size = New System.Drawing.Size(151, 23)
+        Me.txtbusqueda.Size = New System.Drawing.Size(189, 23)
         Me.txtbusqueda.TabIndex = 4
         '
         'Label1
@@ -388,7 +388,7 @@ Partial Class frmPuntoVenta
         Me.rbprecio1.Checked = True
         Me.rbprecio1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbprecio1.ForeColor = System.Drawing.Color.Indigo
-        Me.rbprecio1.Location = New System.Drawing.Point(703, 122)
+        Me.rbprecio1.Location = New System.Drawing.Point(741, 122)
         Me.rbprecio1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.rbprecio1.Name = "rbprecio1"
         Me.rbprecio1.Size = New System.Drawing.Size(70, 17)
@@ -403,7 +403,7 @@ Partial Class frmPuntoVenta
         Me.rbprecio2.AutoSize = True
         Me.rbprecio2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbprecio2.ForeColor = System.Drawing.Color.Indigo
-        Me.rbprecio2.Location = New System.Drawing.Point(785, 122)
+        Me.rbprecio2.Location = New System.Drawing.Point(823, 122)
         Me.rbprecio2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.rbprecio2.Name = "rbprecio2"
         Me.rbprecio2.Size = New System.Drawing.Size(70, 17)
@@ -450,7 +450,7 @@ Partial Class frmPuntoVenta
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(866, 485)
+        Me.ClientSize = New System.Drawing.Size(904, 485)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.lblNombreMesa)
