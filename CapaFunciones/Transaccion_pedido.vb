@@ -160,6 +160,79 @@ Namespace ClaseCodeDOM
             ' =  ------------ INSTRUCCIONES ------------
         End Function
 
+
+        Public Overridable Function SP_ventasEdit(ByVal CE_personas As CE_personas, ByVal CE_pedido As CE_pedido, ByVal ListaCE_detallepedido As List(Of CE_detallepedido), ByVal ListaCE_productostock As List(Of CE_productostock)) As Boolean
+            Dim dt_personas As New DataTable
+            Dim dt_pedido As New DataTable
+
+            Dim id_personas As Integer = Nothing
+            Dim id_pedido As Integer = Nothing
+
+            Dim boolventas_compras As Integer = 1
+            Dim boolvalidador As Boolean
+            Dim con As New Conexion
+            Dim my As New MySqlConnection
+
+            Using Scope As New TransactionScope()
+                Using conexion As New MySqlConnection(conexion_base)
+                    Try
+
+                        conexion.Open() ' = ABRIENDO CONEXION
+
+                        Dim CD_personas As New CD_personas
+                        Dim CD_pedido As New CD_pedido
+                        Dim CD_detallepedido As New CD_detallepedido
+                        Dim CD_productostock As New CD_productostock
+
+                        If CE_personas.idpersonas = 0 Then
+                            dt_personas = CD_personas.DT_personas(CE_personas, conexion)
+                            id_personas = CType(dt_personas.Rows(0).Item("idpersonas").ToString, Integer)
+                            boolventas_compras = 1
+                        ElseIf CE_personas.idpersonas = 2 Then
+                            id_personas = CE_personas.idpersonas
+                        Else
+                            CE_personas.Tipo = 6
+                            CD_personas.SP_personas(CE_personas, conexion)
+                            id_personas = CE_personas.idpersonas
+                        End If
+
+                        CE_pedido.idpersonas = id_personas
+                        If CD_pedido.SP_pedido(CE_pedido, conexion) Then boolventas_compras *= 1 Else boolventas_compras *= 0
+                        id_pedido = CE_pedido.idpedido
+
+                        For Each item As CE_detallepedido In ListaCE_detallepedido
+                            CD_detallepedido = New CD_detallepedido
+                            item.pedido_idpedido = id_pedido
+                            If CD_detallepedido.SP_detallepedido(item, conexion) Then boolventas_compras *= 1 Else boolventas_compras *= 0
+                        Next
+
+                        For Each item As CE_productostock In ListaCE_productostock
+                            CD_productostock = New CD_productostock
+                            If CD_productostock.SP_productostock(item, conexion) Then boolventas_compras *= 1 Else boolventas_compras *= 0
+                        Next
+
+                        If boolventas_compras = 1 Then
+                            boolvalidador = True
+                            Scope.Complete()
+                        Else
+                            boolvalidador = False
+                        End If
+                        Return boolvalidador
+                        conexion.Close()
+                    Catch ex As Exception
+                        boolvalidador = False
+                        Return boolvalidador
+                    Finally
+                        conexion.Close()
+                    End Try
+                End Using
+
+            End Using
+
+            ' =  ------------ INSTRUCCIONES ------------
+        End Function
+
+
         Public Overridable Function SP_pedidoAnulado(ByVal CE_pedido As CE_pedido, listaProductoStock As List(Of CE_productostock)) As Boolean
 
             Dim boolpedido As Integer = 1

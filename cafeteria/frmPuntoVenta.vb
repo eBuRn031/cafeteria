@@ -16,6 +16,9 @@ Public Class frmPuntoVenta
     Private _id_personas As Integer
     'variables para el autocompletado de RUC y Razon Social
     Private ruc_coleccion As AutoCompleteStringCollection
+    'variable que nos indica que se abrio la pantalla desde canjeo de comprobante
+    Private idform As Integer '0 ventas, 1 canje de comprobante, 2 reimpresion
+    Private idPedidoEdit As Integer
 
     Sub New(id As Integer, nombre_mesa As String)
         ' Esta llamada es exigida por el diseñador.
@@ -372,7 +375,11 @@ Public Class frmPuntoVenta
     Private Sub btn_crear_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
         If MsgBox("¿Desea realizar la venta?", MsgBoxStyle.OkCancel, "VENTAS") = MsgBoxResult.Ok Then
             validar_persona()
-            insertar_datos()
+            If idform <> 1 Then
+                insertar_datos()
+            ElseIf idform = 1 Then
+                editar_datos()
+            End If
             limpiar_form()
             imprimirVenta()
         End If
@@ -426,9 +433,9 @@ Public Class frmPuntoVenta
             CE_detallepedido.Tipo = 1
             CE_detallepedido.pedido_idpedido = 0
             CE_detallepedido.producto_idproducto = CInt(dgvDatos.Rows(i).Cells(0).Value)
-            CE_detallepedido.cantidad = CInt(dgvDatos.Rows(i).Cells(3).Value)
-            CE_detallepedido.precio = CInt(dgvDatos.Rows(i).Cells(2).Value)
-            CE_detallepedido.total = CInt(dgvDatos.Rows(i).Cells(4).Value)
+            CE_detallepedido.cantidad = CDec(dgvDatos.Rows(i).Cells(3).Value)
+            CE_detallepedido.precio = CDec(dgvDatos.Rows(i).Cells(2).Value)
+            CE_detallepedido.total = CDec(dgvDatos.Rows(i).Cells(4).Value)
             list_CE_detallepedido.Add(CE_detallepedido)
 
             CE_productostock = New CE_productostock
@@ -437,7 +444,7 @@ Public Class frmPuntoVenta
             CE_productostock.idusuarios = _idusuario
             CE_productostock.fechahora = Now()
             CE_productostock.entrada = 0
-            CE_productostock.salida = CInt(dgvDatos.Rows(i).Cells(3).Value)
+            CE_productostock.salida = CDec(dgvDatos.Rows(i).Cells(3).Value)
             CE_productostock.total = 0
             CE_productostock.comentario = String.Empty
             Lista_CE_productostock.Add(CE_productostock)
@@ -447,6 +454,92 @@ Public Class frmPuntoVenta
         Dim Transaccion_pedido As New Transaccion_pedido
         If Transaccion_pedido.SP_ventas(CE_personas, CE_pedido, list_CE_detallepedido, Lista_CE_productostock) Then
             MsgBox("Pedido guardado")
+        Else
+            MsgBox("Error al guardar la venta")
+        End If
+
+    End Sub
+
+    Sub editar_datos()
+
+        ' llamada a las entidades
+        Dim CE_personas As New CE_personas
+        Dim CE_pedido As New CE_pedido
+
+        'listas
+        Dim list_CE_detallepedido As New List(Of CE_detallepedido)
+        Dim Lista_CE_productostock As New List(Of CE_productostock)
+        Dim CE_detallepedido As New CE_detallepedido
+        Dim CE_productostock As New CE_productostock
+
+        ' campos de personas
+        CE_personas.Tipo = 4
+        CE_personas.idpersonas = _id_personas
+        CE_personas.dni = txtdocumento.Text
+        CE_personas.nombre = txtcliente.Text
+        CE_personas.apellidos = ""
+        CE_personas.direccion = txtdireccion.Text
+        CE_personas.correo = ""
+        CE_personas.celular = ""
+
+        'campos de comprobante
+        CE_pedido.Tipo = 2
+        CE_pedido.idpedido = idPedidoEdit
+        CE_pedido.idpersonas = _id_personas
+        CE_pedido.idusuarios = _idusuario
+        CE_pedido.total = nudtotal.Value
+        CE_pedido.fechahora = Now()
+        CE_pedido.estado = 1
+
+        ' Quitamos al kardex los productos anteiormente agregados
+        Dim cf As New Transaccion_lectura
+        Dim dt As New DataTable
+        dt = cf.DT_leer(New CE_dgv With {.Tipo = 21, .Codigo_1 = idPedidoEdit})
+        For i = 0 To dt.Rows.Count - 1
+            Dim cex As New CE_productostock
+            cex.Tipo = 6
+            cex.idproducto = dt.Rows(0).Item("producto_idproducto")
+            cex.idusuarios = _idusuario
+            cex.fechahora = Now()
+            cex.entrada = dt.Rows(0).Item("cantidad")
+            cex.salida = 0
+            cex.total = 0
+            cex.comentario = "Edicion de pedido " & lblNombreMesa.Text
+            Lista_CE_productostock.Add(cex)
+        Next
+
+        CE_detallepedido = New CE_detallepedido
+        CE_detallepedido.Tipo = 3
+        CE_detallepedido.pedido_idpedido = idPedidoEdit
+        list_CE_detallepedido.Add(CE_detallepedido)
+
+        ' detalle del comprobante
+        For i = 0 To dgvDatos.Rows.Count - 1
+            CE_detallepedido = New CE_detallepedido
+            CE_detallepedido.Tipo = 1
+            CE_detallepedido.pedido_idpedido = 0
+            CE_detallepedido.producto_idproducto = CInt(dgvDatos.Rows(i).Cells(0).Value)
+            CE_detallepedido.cantidad = CDec(dgvDatos.Rows(i).Cells(3).Value)
+            CE_detallepedido.precio = CDec(dgvDatos.Rows(i).Cells(2).Value)
+            CE_detallepedido.total = CDec(dgvDatos.Rows(i).Cells(4).Value)
+            list_CE_detallepedido.Add(CE_detallepedido)
+
+            CE_productostock = New CE_productostock
+            CE_productostock.Tipo = 1
+            CE_productostock.idproducto = CInt(dgvDatos.Rows(i).Cells(0).Value)
+            CE_productostock.idusuarios = _idusuario
+            CE_productostock.fechahora = Now()
+            CE_productostock.entrada = 0
+            CE_productostock.salida = CDec(dgvDatos.Rows(i).Cells(3).Value)
+            CE_productostock.total = 0
+            CE_productostock.comentario = String.Empty
+            Lista_CE_productostock.Add(CE_productostock)
+        Next
+
+        ' llamada a las funciones
+        Dim Transaccion_pedido As New Transaccion_pedido
+        If Transaccion_pedido.SP_ventasEdit(CE_personas, CE_pedido, list_CE_detallepedido, Lista_CE_productostock) Then
+            MsgBox("Pedido editado correctamete")
         Else
             MsgBox("Error al guardar la venta")
         End If
@@ -464,6 +557,8 @@ Public Class frmPuntoVenta
         nuddescuento.Value = 0
         nudimpuesto.Value = 0
         nudtotal.Value = 0
+        idform = 0
+        idPedidoEdit = 0
         busquedaproducto("todo")
     End Sub
 
@@ -471,7 +566,12 @@ Public Class frmPuntoVenta
         Try
             Dim cf As New Transaccion_lectura
             Dim dtx As New DataTable
-            dtx = cf.DT_leer(New CE_dgv With {.Tipo = 26, .Codigo_1 = _id_mesa})
+
+            If idform <> 1 Then
+                dtx = cf.DT_leer(New CE_dgv With {.Tipo = 26, .Codigo_1 = _id_mesa})
+            ElseIf idform = 1 Then
+                dtx = cf.DT_leer(New CE_dgv With {.Tipo = 25, .Codigo_1 = _id_mesa})
+            End If
 
             Dim mesa As String
             Dim ce_p As New CE_personas
@@ -559,6 +659,40 @@ Public Class frmPuntoVenta
                 End If
             Else
                 MessageBox.Show("Selecciona una fila de la tabla")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub cargarDatosPedido(ByVal _idpedidoEditar As Integer)
+        Try
+            idform = 1 'indicamos que estamos abriendo desde otro formulario diferente al punto de venta
+            idPedidoEdit = _idpedidoEditar
+            Dim cf As New Transaccion_lectura
+            Dim dtx As New DataTable
+            dtx = cf.DT_leer(New CE_dgv With {.Tipo = 25, .Codigo_1 = _idpedidoEditar})
+
+            If dtx.Rows.Count > 0 Then
+                lblNombreMesa.Text = dtx.Rows(0).Item("mesa")
+                _id_personas = dtx.Rows(0).Item("idpersonas")
+                txtdocumento.Text = dtx.Rows(0).Item("dni")
+                txtcliente.Text = dtx.Rows(0).Item("cliente")
+                txtdireccion.Text = dtx.Rows(0).Item("direccion")
+
+                For i = 0 To dtx.Rows.Count - 1
+                    Dim cx As New Transaccion_lectura
+                    Dim dtxx As New DataTable
+                    dtxx = cx.DT_leer(New CE_dgv With {.Tipo = 18, .Codigo_1 = dtx.Rows(i).Item("producto_idproducto")})
+                    Dim producto As String = dtxx.Rows(0).Item("nombre").ToString
+                    dgvDatos.Rows.Add(dtx.Rows(i).Item("producto_idproducto"),
+                                      producto,
+                                      dtx.Rows(i).Item("precio"),
+                                      dtx.Rows(i).Item("cantidad"),
+                                      dtx.Rows(i).Item("TotalD"))
+                Next
+                cargar_calculos()
+                sumatorias()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

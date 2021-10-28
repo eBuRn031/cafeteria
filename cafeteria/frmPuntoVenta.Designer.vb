@@ -76,7 +76,7 @@ Partial Class frmPuntoVenta
         Me.pncategoria.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pncategoria.Name = "pncategoria"
         Me.pncategoria.Size = New System.Drawing.Size(423, 68)
-        Me.pncategoria.TabIndex = 0
+        Me.pncategoria.TabIndex = 12
         '
         'pnproductos
         '
@@ -90,7 +90,7 @@ Partial Class frmPuntoVenta
         Me.pnproductos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnproductos.Name = "pnproductos"
         Me.pnproductos.Size = New System.Drawing.Size(425, 328)
-        Me.pnproductos.TabIndex = 1
+        Me.pnproductos.TabIndex = 14
         '
         'pnventa
         '
@@ -120,7 +120,7 @@ Partial Class frmPuntoVenta
         Me.pnventa.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnventa.Name = "pnventa"
         Me.pnventa.Size = New System.Drawing.Size(446, 435)
-        Me.pnventa.TabIndex = 2
+        Me.pnventa.TabIndex = 1
         '
         'btnLimpiarVenta
         '
@@ -130,7 +130,7 @@ Partial Class frmPuntoVenta
         Me.btnLimpiarVenta.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnLimpiarVenta.Name = "btnLimpiarVenta"
         Me.btnLimpiarVenta.Size = New System.Drawing.Size(247, 51)
-        Me.btnLimpiarVenta.TabIndex = 24
+        Me.btnLimpiarVenta.TabIndex = 7
         Me.btnLimpiarVenta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnLimpiarVenta.UseVisualStyleBackColor = False
         '
@@ -140,7 +140,7 @@ Partial Class frmPuntoVenta
         Me.txtdireccion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdireccion.Name = "txtdireccion"
         Me.txtdireccion.Size = New System.Drawing.Size(435, 21)
-        Me.txtdireccion.TabIndex = 23
+        Me.txtdireccion.TabIndex = 4
         '
         'Label9
         '
@@ -161,7 +161,7 @@ Partial Class frmPuntoVenta
         Me.btnAceptar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAceptar.Name = "btnAceptar"
         Me.btnAceptar.Size = New System.Drawing.Size(247, 53)
-        Me.btnAceptar.TabIndex = 20
+        Me.btnAceptar.TabIndex = 6
         Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnAceptar.UseVisualStyleBackColor = False
         '
@@ -174,7 +174,7 @@ Partial Class frmPuntoVenta
         Me.nudtotal.Name = "nudtotal"
         Me.nudtotal.ReadOnly = True
         Me.nudtotal.Size = New System.Drawing.Size(105, 21)
-        Me.nudtotal.TabIndex = 19
+        Me.nudtotal.TabIndex = 11
         Me.nudtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nuddescuento
@@ -186,7 +186,7 @@ Partial Class frmPuntoVenta
         Me.nuddescuento.Name = "nuddescuento"
         Me.nuddescuento.ReadOnly = True
         Me.nuddescuento.Size = New System.Drawing.Size(105, 21)
-        Me.nuddescuento.TabIndex = 18
+        Me.nuddescuento.TabIndex = 10
         Me.nuddescuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nudimpuesto
@@ -198,7 +198,7 @@ Partial Class frmPuntoVenta
         Me.nudimpuesto.Name = "nudimpuesto"
         Me.nudimpuesto.ReadOnly = True
         Me.nudimpuesto.Size = New System.Drawing.Size(105, 21)
-        Me.nudimpuesto.TabIndex = 17
+        Me.nudimpuesto.TabIndex = 9
         Me.nudimpuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'nudsubtotal
@@ -210,7 +210,7 @@ Partial Class frmPuntoVenta
         Me.nudsubtotal.Name = "nudsubtotal"
         Me.nudsubtotal.ReadOnly = True
         Me.nudsubtotal.Size = New System.Drawing.Size(105, 21)
-        Me.nudsubtotal.TabIndex = 16
+        Me.nudsubtotal.TabIndex = 8
         Me.nudsubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
@@ -266,7 +266,7 @@ Partial Class frmPuntoVenta
         Me.btnconsultar.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnconsultar.Name = "btnconsultar"
         Me.btnconsultar.Size = New System.Drawing.Size(39, 36)
-        Me.btnconsultar.TabIndex = 11
+        Me.btnconsultar.TabIndex = 2
         Me.btnconsultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnconsultar.UseVisualStyleBackColor = True
         '
@@ -276,7 +276,7 @@ Partial Class frmPuntoVenta
         Me.txtcliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcliente.Name = "txtcliente"
         Me.txtcliente.Size = New System.Drawing.Size(257, 21)
-        Me.txtcliente.TabIndex = 10
+        Me.txtcliente.TabIndex = 3
         '
         'Label4
         '
@@ -299,7 +299,7 @@ Partial Class frmPuntoVenta
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
         Me.dgvDatos.Size = New System.Drawing.Size(435, 171)
-        Me.dgvDatos.TabIndex = 8
+        Me.dgvDatos.TabIndex = 5
         '
         'id
         '
@@ -347,7 +347,7 @@ Partial Class frmPuntoVenta
         Me.txtdocumento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdocumento.Name = "txtdocumento"
         Me.txtdocumento.Size = New System.Drawing.Size(127, 21)
-        Me.txtdocumento.TabIndex = 6
+        Me.txtdocumento.TabIndex = 1
         '
         'Label2
         '
@@ -368,7 +368,7 @@ Partial Class frmPuntoVenta
         Me.txtbusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbusqueda.Name = "txtbusqueda"
         Me.txtbusqueda.Size = New System.Drawing.Size(189, 23)
-        Me.txtbusqueda.TabIndex = 4
+        Me.txtbusqueda.TabIndex = 13
         '
         'Label1
         '
@@ -466,6 +466,7 @@ Partial Class frmPuntoVenta
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmPuntoVenta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PUNTO DE VENTA"
         Me.pnventa.ResumeLayout(False)
         Me.pnventa.PerformLayout()

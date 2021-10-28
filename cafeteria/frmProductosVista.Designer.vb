@@ -38,7 +38,7 @@ Partial Class frmProductosVista
         Me.txtBusqueda.Location = New System.Drawing.Point(63, 32)
         Me.txtBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBusqueda.Name = "txtBusqueda"
-        Me.txtBusqueda.Size = New System.Drawing.Size(596, 23)
+        Me.txtBusqueda.Size = New System.Drawing.Size(683, 23)
         Me.txtBusqueda.TabIndex = 7
         '
         'btnnuevo
@@ -60,7 +60,7 @@ Partial Class frmProductosVista
         Me.dgvDatos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgvDatos.Size = New System.Drawing.Size(645, 266)
+        Me.dgvDatos.Size = New System.Drawing.Size(732, 266)
         Me.dgvDatos.TabIndex = 5
         '
         'Label1
@@ -79,7 +79,7 @@ Partial Class frmProductosVista
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(671, 336)
+        Me.ClientSize = New System.Drawing.Size(758, 331)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtBusqueda)
         Me.Controls.Add(Me.btnnuevo)
@@ -90,6 +90,7 @@ Partial Class frmProductosVista
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmProductosVista"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PRODUCTOS"
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

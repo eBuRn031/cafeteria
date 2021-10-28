@@ -40,6 +40,7 @@ Public Class frmProductosVista
 
             Dim colEditar As New DataGridViewImageColumn()
             Dim colEliminar As New DataGridViewImageColumn()
+            Dim colKardex As New DataGridViewImageColumn()
             Dim colImagen As New DataGridViewImageColumn()
 
             colEditar.Name = "colEditar"
@@ -52,6 +53,11 @@ Public Class frmProductosVista
             colEliminar.Image = My.Resources.deleteicon
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
 
+            colKardex.Name = "colKardex"
+            colKardex.HeaderText = "KARDEX"
+            colKardex.Image = My.Resources.photoicon
+            colKardex.ImageLayout = DataGridViewImageCellLayout.Normal
+
             colImagen.Name = "colImagen"
             colImagen.HeaderText = "IMAGEN"
             colImagen.Image = My.Resources.photoicon
@@ -59,7 +65,9 @@ Public Class frmProductosVista
 
             dgv.Columns.Add(colEditar)
             dgv.Columns.Add(colEliminar)
+            dgv.Columns.Add(colKardex)
             dgv.Columns.Add(colImagen)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

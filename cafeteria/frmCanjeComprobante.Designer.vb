@@ -74,7 +74,7 @@ Partial Class frmCanjeComprobante
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Indigo
-        Me.Label2.Location = New System.Drawing.Point(216, 54)
+        Me.Label2.Location = New System.Drawing.Point(257, 54)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(90, 13)
         Me.Label2.TabIndex = 93
@@ -84,10 +84,10 @@ Partial Class frmCanjeComprobante
         '
         Me.cbTipoComprobante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbTipoComprobante.FormattingEnabled = True
-        Me.cbTipoComprobante.Location = New System.Drawing.Point(219, 74)
+        Me.cbTipoComprobante.Location = New System.Drawing.Point(260, 74)
         Me.cbTipoComprobante.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbTipoComprobante.Name = "cbTipoComprobante"
-        Me.cbTipoComprobante.Size = New System.Drawing.Size(214, 24)
+        Me.cbTipoComprobante.Size = New System.Drawing.Size(262, 24)
         Me.cbTipoComprobante.TabIndex = 3
         '
         'dgvDatos
@@ -98,7 +98,7 @@ Partial Class frmCanjeComprobante
         Me.dgvDatos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgvDatos.Size = New System.Drawing.Size(414, 208)
+        Me.dgvDatos.Size = New System.Drawing.Size(503, 208)
         Me.dgvDatos.TabIndex = 4
         '
         'lblmesa
@@ -126,7 +126,7 @@ Partial Class frmCanjeComprobante
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Indigo
-        Me.Label5.Location = New System.Drawing.Point(216, 12)
+        Me.Label5.Location = New System.Drawing.Point(257, 12)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(38, 13)
         Me.Label5.TabIndex = 101
@@ -136,10 +136,10 @@ Partial Class frmCanjeComprobante
         '
         Me.cbpago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbpago.FormattingEnabled = True
-        Me.cbpago.Location = New System.Drawing.Point(219, 26)
+        Me.cbpago.Location = New System.Drawing.Point(260, 26)
         Me.cbpago.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbpago.Name = "cbpago"
-        Me.cbpago.Size = New System.Drawing.Size(214, 24)
+        Me.cbpago.Size = New System.Drawing.Size(262, 24)
         Me.cbpago.TabIndex = 2
         '
         'Label7
@@ -160,7 +160,7 @@ Partial Class frmCanjeComprobante
         Me.cbSerie.Location = New System.Drawing.Point(19, 74)
         Me.cbSerie.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cbSerie.Name = "cbSerie"
-        Me.cbSerie.Size = New System.Drawing.Size(172, 24)
+        Me.cbSerie.Size = New System.Drawing.Size(235, 24)
         Me.cbSerie.TabIndex = 1
         '
         'frmCanjeComprobante
@@ -168,7 +168,7 @@ Partial Class frmCanjeComprobante
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(447, 343)
+        Me.ClientSize = New System.Drawing.Size(534, 343)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.cbSerie)
         Me.Controls.Add(Me.Label5)
@@ -187,6 +187,7 @@ Partial Class frmCanjeComprobante
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmCanjeComprobante"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CANJE A COMPROBANTE"
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

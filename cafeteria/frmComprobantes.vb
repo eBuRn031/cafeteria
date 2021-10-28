@@ -18,9 +18,9 @@ Public Class frmComprobantes
             Dim cd As New Transaccion_lectura
             dtcomprobantes = New DataTable
             Select Case cbTipo.SelectedValue
-                Case "01"
+                Case "01" 'comprobantes
                     dtcomprobantes = cd.DT_leer(New CE_dgv With {.Tipo = 22, .Codigo_1 = Convert.ToDateTime(dtpFecha.Value).ToString("yyyy-MM-dd")})
-                Case "02"
+                Case "02" 'pedidos
                     dtcomprobantes = cd.DT_leer(New CE_dgv With {.Tipo = 23, .Codigo_1 = Convert.ToDateTime(dtpFecha.Value).ToString("yyyy-MM-dd")})
             End Select
             AgregarFilasDGV(dgvDatos, dtcomprobantes)
@@ -49,15 +49,15 @@ Public Class frmComprobantes
             colImprimir.HeaderText = "IMPRIMIR"
             colImprimir.Image = My.Resources._39263_print_printer_icon
             colImprimir.ImageLayout = DataGridViewImageCellLayout.Zoom
-
-            colEliminar.Name = "colEliminar"
-            colEliminar.HeaderText = "ELIMINAR"
-            colEliminar.Image = My.Resources.deleteicon
-            colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
-
             dgv.Columns.Add(colImprimir)
-            dgv.Columns.Add(colEliminar)
 
+            If _tipoUsuario = "A" Then
+                colEliminar.Name = "colEliminar"
+                colEliminar.HeaderText = "ELIMINAR"
+                colEliminar.Image = My.Resources.deleteicon
+                colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
+                dgv.Columns.Add(colEliminar)
+            End If
         Catch ex As Exception
             ' MsgBox(ex.Message)
         End Try
@@ -79,6 +79,7 @@ Public Class frmComprobantes
             dgv.Columns("id").Visible = False
             dgv.Columns("idpersona").Visible = False
             dgv.Columns("idmesa").Visible = False
+            dgv.Columns("cliente").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Catch ex As Exception
             '   MsgBox(ex.Message)
         End Try

@@ -175,6 +175,18 @@
     <Compile Include="FrmImpresiones.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmKardex.Designer.vb">
+      <DependentUpon>frmKardex.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKardex.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKardexVista.Designer.vb">
+      <DependentUpon>frmKardexVista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmKardexVista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.Designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -305,6 +317,12 @@
     <EmbeddedResource Include="FrmImpresiones.resx">
       <DependentUpon>FrmImpresiones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmKardex.resx">
+      <DependentUpon>frmKardex.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKardexVista.resx">
+      <DependentUpon>frmKardexVista.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +419,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1562703_coffee_creative_good idea_icon.ico" />
+    <None Include="Resources\6071783_delivery_food_meal_order_food delivery_icon.png" />
     <None Include="Resources\mesallena1.png" />
     <None Include="Resources\2931168_bin_delete_remove_trash_garbage_icon.png" />
     <None Include="Resources\1622836_checkmark_done_explore_find_magnifier_icon %281%29.png" />

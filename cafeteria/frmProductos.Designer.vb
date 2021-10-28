@@ -277,6 +277,7 @@ Partial Class frmProductos
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmProductos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PRODUCTOS"
         CType(Me.pbimagen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudprecio1, System.ComponentModel.ISupportInitialize).EndInit()

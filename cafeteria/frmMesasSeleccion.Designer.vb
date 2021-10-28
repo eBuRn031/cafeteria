@@ -30,14 +30,15 @@ Partial Class frmMesasSeleccion
         Me.lbltipo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnreporte = New System.Windows.Forms.Button()
-        Me.btnturno = New System.Windows.Forms.Button()
-        Me.btnclientes = New System.Windows.Forms.Button()
-        Me.btncomprobantes = New System.Windows.Forms.Button()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.InicioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnsinmesa = New System.Windows.Forms.Button()
+        Me.btnreporte = New System.Windows.Forms.Button()
+        Me.btnturno = New System.Windows.Forms.Button()
+        Me.btnclientes = New System.Windows.Forms.Button()
+        Me.btncomprobantes = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -53,8 +54,8 @@ Partial Class frmMesasSeleccion
         Me.pnMesas.Location = New System.Drawing.Point(12, 136)
         Me.pnMesas.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pnMesas.Name = "pnMesas"
-        Me.pnMesas.Size = New System.Drawing.Size(607, 267)
-        Me.pnMesas.TabIndex = 1
+        Me.pnMesas.Size = New System.Drawing.Size(695, 267)
+        Me.pnMesas.TabIndex = 3
         '
         'GroupBox1
         '
@@ -65,7 +66,7 @@ Partial Class frmMesasSeleccion
         Me.GroupBox1.Location = New System.Drawing.Point(12, 34)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(251, 95)
-        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos Usuario"
         '
@@ -117,75 +118,24 @@ Partial Class frmMesasSeleccion
         '
         Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.btnsinmesa)
         Me.GroupBox2.Controls.Add(Me.btnreporte)
         Me.GroupBox2.Controls.Add(Me.btnturno)
         Me.GroupBox2.Controls.Add(Me.btnclientes)
         Me.GroupBox2.Controls.Add(Me.btncomprobantes)
         Me.GroupBox2.Location = New System.Drawing.Point(269, 34)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(350, 95)
-        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.Size = New System.Drawing.Size(438, 95)
+        Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Opciones"
-        '
-        'btnreporte
-        '
-        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnreporte.Image = Global.cafeteria.My.Resources.Resources._379342_increase_money_icon
-        Me.btnreporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnreporte.Location = New System.Drawing.Point(264, 16)
-        Me.btnreporte.Name = "btnreporte"
-        Me.btnreporte.Size = New System.Drawing.Size(80, 73)
-        Me.btnreporte.TabIndex = 22
-        Me.btnreporte.Text = "Reporte"
-        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnreporte.UseVisualStyleBackColor = True
-        '
-        'btnturno
-        '
-        Me.btnturno.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnturno.Image = Global.cafeteria.My.Resources.Resources._2824441_clock_stopwatch_time_timer_icon
-        Me.btnturno.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnturno.Location = New System.Drawing.Point(178, 16)
-        Me.btnturno.Name = "btnturno"
-        Me.btnturno.Size = New System.Drawing.Size(80, 73)
-        Me.btnturno.TabIndex = 21
-        Me.btnturno.Text = "Turno"
-        Me.btnturno.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnturno.UseVisualStyleBackColor = True
-        '
-        'btnclientes
-        '
-        Me.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnclientes.Image = Global.cafeteria.My.Resources.Resources._4714992_avatar_man_people_person_profile_icon
-        Me.btnclientes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnclientes.Location = New System.Drawing.Point(92, 16)
-        Me.btnclientes.Name = "btnclientes"
-        Me.btnclientes.Size = New System.Drawing.Size(80, 73)
-        Me.btnclientes.TabIndex = 20
-        Me.btnclientes.Text = "Clientes"
-        Me.btnclientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnclientes.UseVisualStyleBackColor = True
-        '
-        'btncomprobantes
-        '
-        Me.btncomprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btncomprobantes.Image = Global.cafeteria.My.Resources.Resources._39263_print_printer_icon
-        Me.btncomprobantes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btncomprobantes.Location = New System.Drawing.Point(6, 16)
-        Me.btncomprobantes.Name = "btncomprobantes"
-        Me.btncomprobantes.Size = New System.Drawing.Size(80, 73)
-        Me.btncomprobantes.TabIndex = 19
-        Me.btncomprobantes.Text = "Reimprimir"
-        Me.btncomprobantes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btncomprobantes.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(631, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(719, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -208,12 +158,77 @@ Partial Class frmMesasSeleccion
         Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
         Me.SalirToolStripMenuItem.Text = "Salir"
         '
+        'btnsinmesa
+        '
+        Me.btnsinmesa.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnsinmesa.Image = Global.cafeteria.My.Resources.Resources._6071783_delivery_food_meal_order_food_delivery_icon
+        Me.btnsinmesa.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnsinmesa.Location = New System.Drawing.Point(350, 16)
+        Me.btnsinmesa.Name = "btnsinmesa"
+        Me.btnsinmesa.Size = New System.Drawing.Size(80, 73)
+        Me.btnsinmesa.TabIndex = 5
+        Me.btnsinmesa.Text = "Sin Mesa"
+        Me.btnsinmesa.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnsinmesa.UseVisualStyleBackColor = True
+        '
+        'btnreporte
+        '
+        Me.btnreporte.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnreporte.Image = Global.cafeteria.My.Resources.Resources._379342_increase_money_icon
+        Me.btnreporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnreporte.Location = New System.Drawing.Point(264, 16)
+        Me.btnreporte.Name = "btnreporte"
+        Me.btnreporte.Size = New System.Drawing.Size(80, 73)
+        Me.btnreporte.TabIndex = 4
+        Me.btnreporte.Text = "Reporte"
+        Me.btnreporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnreporte.UseVisualStyleBackColor = True
+        '
+        'btnturno
+        '
+        Me.btnturno.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnturno.Image = Global.cafeteria.My.Resources.Resources._2824441_clock_stopwatch_time_timer_icon
+        Me.btnturno.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnturno.Location = New System.Drawing.Point(178, 16)
+        Me.btnturno.Name = "btnturno"
+        Me.btnturno.Size = New System.Drawing.Size(80, 73)
+        Me.btnturno.TabIndex = 3
+        Me.btnturno.Text = "Turno"
+        Me.btnturno.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnturno.UseVisualStyleBackColor = True
+        '
+        'btnclientes
+        '
+        Me.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnclientes.Image = Global.cafeteria.My.Resources.Resources._4714992_avatar_man_people_person_profile_icon
+        Me.btnclientes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnclientes.Location = New System.Drawing.Point(92, 16)
+        Me.btnclientes.Name = "btnclientes"
+        Me.btnclientes.Size = New System.Drawing.Size(80, 73)
+        Me.btnclientes.TabIndex = 2
+        Me.btnclientes.Text = "Clientes"
+        Me.btnclientes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnclientes.UseVisualStyleBackColor = True
+        '
+        'btncomprobantes
+        '
+        Me.btncomprobantes.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btncomprobantes.Image = Global.cafeteria.My.Resources.Resources._39263_print_printer_icon
+        Me.btncomprobantes.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btncomprobantes.Location = New System.Drawing.Point(6, 16)
+        Me.btncomprobantes.Name = "btncomprobantes"
+        Me.btncomprobantes.Size = New System.Drawing.Size(80, 73)
+        Me.btncomprobantes.TabIndex = 1
+        Me.btncomprobantes.Text = "Reimprimir"
+        Me.btncomprobantes.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btncomprobantes.UseVisualStyleBackColor = True
+        '
         'frmMesasSeleccion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(631, 416)
+        Me.ClientSize = New System.Drawing.Size(719, 416)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.pnMesas)
@@ -250,4 +265,5 @@ Partial Class frmMesasSeleccion
     Friend WithEvents InicioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents btnsinmesa As Button
 End Class

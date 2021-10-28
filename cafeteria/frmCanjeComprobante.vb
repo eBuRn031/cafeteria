@@ -9,6 +9,7 @@ Public Class frmCanjeComprobante
     Private comprobantes As New CE_ventas
     Private detalle As New List(Of CE_detalleventas)
     Public form_apertura As Integer
+    Public idform As Integer
 
     Sub New(_id As Integer, _nombremesa As String)
         ' Esta llamada es exigida por el diseñador.
@@ -103,8 +104,14 @@ Public Class frmCanjeComprobante
                 Next
             End If
 
+            Dim colEditar As New DataGridViewImageColumn()
             Dim colComprobante As New DataGridViewImageColumn()
             Dim colEliminar As New DataGridViewImageColumn()
+
+            colEditar.Name = "colEditar"
+            colEditar.HeaderText = "EDITAR"
+            colEditar.Image = My.Resources.editicon
+            colEditar.ImageLayout = DataGridViewImageCellLayout.Zoom
 
             colComprobante.Name = "colComprobante"
             colComprobante.HeaderText = "COMPROBANTE"
@@ -116,6 +123,7 @@ Public Class frmCanjeComprobante
             colEliminar.Image = My.Resources.deleteicon
             colEliminar.ImageLayout = DataGridViewImageCellLayout.Zoom
 
+            dgv.Columns.Add(colEditar)
             dgv.Columns.Add(colEliminar)
             dgv.Columns.Add(colComprobante)
 
@@ -163,6 +171,14 @@ Public Class frmCanjeComprobante
                     If MsgBox("¿Desea convertir a una " & cbTipoComprobante.Text & " el pedido de " & sender.ROWS(e.RowIndex).CELLS("nombre").value & " con el monto " & sender.ROWS(e.RowIndex).CELLS("total").value & "?", MsgBoxResult.Ok, "Advertencia") = MsgBoxResult.Ok Then
                         ventaProcesada(sender.ROWS(e.RowIndex).CELLS("id").value)
                         CargarDatos()
+                    End If
+                Case "colEditar"
+                    If MsgBox("¿Desea editar el pedido de " & sender.ROWS(e.RowIndex).CELLS("nombre").value & " con el monto " & sender.ROWS(e.RowIndex).CELLS("total").value & "?", MsgBoxResult.Ok, "Advertencia") = MsgBoxResult.Ok Then
+                        idform = 1
+                        Dim frm As New frmPuntoVenta(1, "")
+                        frm.Show()
+                        frm.cargarDatosPedido(sender.ROWS(e.RowIndex).CELLS("id").value)
+                        Me.Close()
                     End If
             End Select
         Catch ex As Exception
@@ -298,8 +314,10 @@ Public Class frmCanjeComprobante
     End Sub
 
     Private Sub frmCategoria_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Dim frm As New frmMesasSeleccion
-        frm.Show()
+        If idform <> 1 Then
+            Dim frm As New frmMesasSeleccion
+            frm.Show()
+        End If
     End Sub
 
     Private Sub DgvCajas_RowPostPaint(sender As Object, e As DataGridViewRowPostPaintEventArgs) Handles dgvDatos.RowPostPaint

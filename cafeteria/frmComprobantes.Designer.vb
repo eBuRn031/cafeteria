@@ -41,7 +41,7 @@ Partial Class frmComprobantes
         Me.txtBusqueda.Location = New System.Drawing.Point(12, 79)
         Me.txtBusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtBusqueda.Name = "txtBusqueda"
-        Me.txtBusqueda.Size = New System.Drawing.Size(665, 23)
+        Me.txtBusqueda.Size = New System.Drawing.Size(756, 23)
         Me.txtBusqueda.TabIndex = 3
         '
         'dgvDatos
@@ -52,7 +52,7 @@ Partial Class frmComprobantes
         Me.dgvDatos.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dgvDatos.Name = "dgvDatos"
         Me.dgvDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.dgvDatos.Size = New System.Drawing.Size(665, 194)
+        Me.dgvDatos.Size = New System.Drawing.Size(756, 194)
         Me.dgvDatos.TabIndex = 4
         '
         'cbTipo
@@ -83,7 +83,7 @@ Partial Class frmComprobantes
         Me.dtpFecha.Location = New System.Drawing.Point(238, 32)
         Me.dtpFecha.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtpFecha.Name = "dtpFecha"
-        Me.dtpFecha.Size = New System.Drawing.Size(439, 23)
+        Me.dtpFecha.Size = New System.Drawing.Size(530, 23)
         Me.dtpFecha.TabIndex = 2
         '
         'Label2
@@ -113,7 +113,7 @@ Partial Class frmComprobantes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(685, 312)
+        Me.ClientSize = New System.Drawing.Size(776, 312)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtpFecha)
@@ -127,6 +127,7 @@ Partial Class frmComprobantes
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmComprobantes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "COMPROBANTES/PEDIDOS"
         CType(Me.dgvDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

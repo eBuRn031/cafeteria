@@ -114,4 +114,9 @@ Public Class frmMesasSeleccion
         Application.Exit()
     End Sub
 
+    Private Sub btnsinmesa_Click(sender As Object, e As EventArgs) Handles btnsinmesa.Click
+        Dim frm As New frmOpcionesVenta(1, CType(sender, System.Windows.Forms.Button).Text)
+        frm.ShowDialog()
+    End Sub
+
 End Class
