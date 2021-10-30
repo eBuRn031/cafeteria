@@ -256,6 +256,7 @@ Partial Class frmCajaChica
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmCajaChica"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CAJA CHICA"
         CType(Me.nudmontoinicio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudmontofinal, System.ComponentModel.ISupportInitialize).EndInit()

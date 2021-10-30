@@ -5,6 +5,7 @@ Public Class frmProductosVista
     Dim dtproductos As New DataTable
 
     Private Sub frmCategoriasVista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ocultarPrincipal()
         style_grilla(dgvDatos)
         CargarDatos()
     End Sub
@@ -170,5 +171,7 @@ Public Class frmProductosVista
         End If
     End Sub
 
-
+    Private Sub frmCategoria_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        mostrarPrincipal()
+    End Sub
 End Class

@@ -37,8 +37,11 @@ Public Class frmEmpresa
     End Sub
 
     Private Sub frmEmpresa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ocultarPrincipal()
         Me.TopMost = True
         cargarEmpresa()
     End Sub
-
+    Private Sub frmCategoria_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        mostrarPrincipal()
+    End Sub
 End Class

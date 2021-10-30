@@ -113,7 +113,6 @@ Module MdlGlobal
 
 #End Region
 
-
 #Region "Reniec"
     Public Function ConsultaDNI(ByVal dni As String) As String
         Try
@@ -415,6 +414,33 @@ Module MdlGlobal
            Or System.Windows.Forms.AnchorStyles.Left) _
            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     End Sub
+#End Region
+
+#Region "PRINCIPAL"
+    Sub mostrarPrincipal()
+        Dim frmCollection As New FormCollection()
+        frmCollection = Application.OpenForms()
+        Try
+            If frmCollection.Item("frmPrincipal").IsHandleCreated Then
+                Dim frmx As Form = frmCollection.Item("frmPrincipal")
+                frmx.TopMost = True
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Sub ocultarPrincipal()
+        Dim frmCollection As New FormCollection()
+        frmCollection = Application.OpenForms()
+        Try
+            If frmCollection.Item("frmPrincipal").IsHandleCreated Then
+                Dim frmx As Form = frmCollection.Item("frmPrincipal")
+                frmx.TopMost = False
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
 #End Region
 
 End Module
