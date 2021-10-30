@@ -23,32 +23,32 @@
 
     Private Sub ProductosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ProductosToolStripMenuItem1.Click
         Dim f As New frmProductosVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub CategoriasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CategoriasToolStripMenuItem.Click
         Dim f As New frmCategoriasVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub UnidadesDeMedidaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UnidadesDeMedidaToolStripMenuItem.Click
         Dim f As New frmUnidadMedidaVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub ClientesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClientesToolStripMenuItem.Click
         Dim f As New frmPersonasVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub ComprobantesPedidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ComprobantesPedidosToolStripMenuItem.Click
         Dim f As New frmComprobantes
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub CajaChicaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CajaChicaToolStripMenuItem.Click
         Dim f As New frmCajaChicaVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub ReporteVentasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReporteVentasToolStripMenuItem.Click
@@ -57,12 +57,12 @@
 
     Private Sub MesasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MesasToolStripMenuItem1.Click
         Dim f As New frmMesasVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub EmpresaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresaToolStripMenuItem.Click
         Dim f As New frmEmpresa
-        f.ShowDialog()
+        f.Show()
     End Sub
 
 End Class

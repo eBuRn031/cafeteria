@@ -83,8 +83,10 @@ Public Class frmPuntoVenta
         AddHandler btn.Click, AddressOf Button_Click
         pncategoria.Controls.Add(btn)  ' Agregas el botón al formulario.
 
+        xx = tamaniobotonx + 10
+
         If dt.Rows.Count > Nothing Then
-            Dim ncolumnas As Integer = 1
+            Dim ncolumnas As Integer = 2
             For i = 0 To dt.Rows.Count - 1
                 btn = New Button()   ' Creas el objeto boton
                 With btn
@@ -380,8 +382,8 @@ Public Class frmPuntoVenta
             ElseIf idform = 1 Then
                 editar_datos()
             End If
-            limpiar_form()
             imprimirVenta()
+            limpiar_form()
         End If
     End Sub
 
@@ -570,7 +572,7 @@ Public Class frmPuntoVenta
             If idform <> 1 Then
                 dtx = cf.DT_leer(New CE_dgv With {.Tipo = 26, .Codigo_1 = _id_mesa})
             ElseIf idform = 1 Then
-                dtx = cf.DT_leer(New CE_dgv With {.Tipo = 25, .Codigo_1 = _id_mesa})
+                dtx = cf.DT_leer(New CE_dgv With {.Tipo = 25, .Codigo_1 = idPedidoEdit})
             End If
 
             Dim mesa As String

@@ -200,6 +200,7 @@ Partial Class frmPersonas
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "frmPersonas"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PERSONAS"
         Me.ResumeLayout(False)
         Me.PerformLayout()

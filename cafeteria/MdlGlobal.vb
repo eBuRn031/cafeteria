@@ -423,22 +423,22 @@ Module MdlGlobal
         Try
             If frmCollection.Item("frmPrincipal").IsHandleCreated Then
                 Dim frmx As Form = frmCollection.Item("frmPrincipal")
-                frmx.TopMost = True
+                frmx.BringToFront()
             End If
         Catch ex As Exception
         End Try
     End Sub
 
     Sub ocultarPrincipal()
-        Dim frmCollection As New FormCollection()
-        frmCollection = Application.OpenForms()
-        Try
-            If frmCollection.Item("frmPrincipal").IsHandleCreated Then
-                Dim frmx As Form = frmCollection.Item("frmPrincipal")
-                frmx.TopMost = False
-            End If
-        Catch ex As Exception
-        End Try
+        'Dim frmCollection As New FormCollection()
+        'frmCollection = Application.OpenForms()
+        'Try
+        '    If frmCollection.Item("frmPrincipal").IsHandleCreated Then
+        '        Dim frmx As Form = frmCollection.Item("frmPrincipal")
+        '        frmx.SendToBack()
+        '    End If
+        'Catch ex As Exception
+        'End Try
     End Sub
 
 #End Region
