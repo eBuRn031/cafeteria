@@ -136,6 +136,7 @@ Partial Class frmPuntoVenta
         '
         'txtdireccion
         '
+        Me.txtdireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdireccion.Location = New System.Drawing.Point(7, 80)
         Me.txtdireccion.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdireccion.Name = "txtdireccion"
@@ -272,6 +273,7 @@ Partial Class frmPuntoVenta
         '
         'txtcliente
         '
+        Me.txtcliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtcliente.Location = New System.Drawing.Point(185, 34)
         Me.txtcliente.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtcliente.Name = "txtcliente"
@@ -343,6 +345,7 @@ Partial Class frmPuntoVenta
         '
         'txtdocumento
         '
+        Me.txtdocumento.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtdocumento.Location = New System.Drawing.Point(7, 34)
         Me.txtdocumento.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdocumento.Name = "txtdocumento"
@@ -364,6 +367,7 @@ Partial Class frmPuntoVenta
         '
         Me.txtbusqueda.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtbusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtbusqueda.Location = New System.Drawing.Point(539, 121)
         Me.txtbusqueda.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtbusqueda.Name = "txtbusqueda"

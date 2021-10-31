@@ -420,13 +420,13 @@ Module MdlGlobal
     Sub mostrarPrincipal()
         Dim frmCollection As New FormCollection()
         frmCollection = Application.OpenForms()
-        Try
-            If frmCollection.Item("frmPrincipal").IsHandleCreated Then
-                Dim frmx As Form = frmCollection.Item("frmPrincipal")
-                frmx.BringToFront()
+
+        For i As Int16 = 0I To frmCollection.Count - 1I
+            If frmCollection.Item(i).Name = "frmPrincipal" Then
+                frmCollection.Item(i).BringToFront()
+                Exit Sub
             End If
-        Catch ex As Exception
-        End Try
+        Next i
     End Sub
 
     Sub ocultarPrincipal()

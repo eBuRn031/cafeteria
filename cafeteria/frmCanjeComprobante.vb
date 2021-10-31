@@ -154,6 +154,7 @@ Public Class frmCanjeComprobante
             dgv.Columns.Add("nombre", "CLIENTE")
             dgv.Columns.Add("total", "IMPORTE")
             dgv.Columns("id").Visible = False
+            dgv.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

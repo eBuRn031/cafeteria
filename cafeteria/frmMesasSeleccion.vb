@@ -93,7 +93,7 @@ Public Class frmMesasSeleccion
 
     Private Sub btnclientes_Click(sender As Object, e As EventArgs) Handles btnclientes.Click
         Dim f As New frmPersonasVista
-        f.ShowDialog()
+        f.Show()
     End Sub
 
     Private Sub btnturno_Click(sender As Object, e As EventArgs) Handles btnturno.Click
